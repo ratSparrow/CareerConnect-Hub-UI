@@ -20,36 +20,36 @@ export const sidebarItems = (role: string) => {
         },
       ],
     },
-    {
-      label: "Manage Blog",
-      key: "blog",
-      icon: <AppstoreOutlined />,
-      children: [
-        {
-          label: <Link to="/dashboard/blog">View Blog</Link>,
-          key: `/${role}/dashboard/blog`,
-        },
-        {
-          label: <Link to="/dashboard/blog/create">Publish a Blog</Link>,
-          key: `/${role}/dashboard/blog/create`,
-        },
-      ],
-    },
-    {
-      label: "Manage Events",
-      key: "events",
-      icon: <AppstoreOutlined />,
-      children: [
-        {
-          label: <Link to="/dashboard/events">View Events</Link>,
-          key: `/${role}/dashboard/events`,
-        },
-        {
-          label: <Link to="/dashboard/events/create">Create an event</Link>,
-          key: `/${role}/dashboard/events/create`,
-        },
-      ],
-    },
+    // {
+    //   label: "Manage Blog",
+    //   key: "blog",
+    //   icon: <AppstoreOutlined />,
+    //   children: [
+    //     {
+    //       label: <Link to="/dashboard/blog">View Blog</Link>,
+    //       key: `/${role}/dashboard/blog`,
+    //     },
+    //     {
+    //       label: <Link to="/dashboard/blog/create">Publish a Blog</Link>,
+    //       key: `/${role}/dashboard/blog/create`,
+    //     },
+    //   ],
+    // },
+    // {
+    //   label: "Manage Events",
+    //   key: "events",
+    //   icon: <AppstoreOutlined />,
+    //   children: [
+    //     {
+    //       label: <Link to="/dashboard/events">View Events</Link>,
+    //       key: `/${role}/dashboard/events`,
+    //     },
+    //     {
+    //       label: <Link to="/dashboard/events/create">Create an event</Link>,
+    //       key: `/${role}/dashboard/events/create`,
+    //     },
+    //   ],
+    // },
   ];
 
   const recruiterSidebarItems: MenuProps["items"] = [

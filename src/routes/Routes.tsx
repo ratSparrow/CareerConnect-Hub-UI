@@ -6,6 +6,7 @@ import MainLayout from "../components/Layouts/MainLayout";
 import CreateJob from "../pages/dashboard/job/CreateJob";
 import ViewJobs from "../pages/dashboard/job/ViewJobs";
 import Homepage from "../pages/home/Homepage";
+import CompanyChart from "../pages/dashboard/company/CompanyCharts";
 
 const routes = createBrowserRouter([
   {
@@ -38,6 +39,10 @@ const routes = createBrowserRouter([
       {
         path: "/dashboard/job/create",
         element: <CreateJob />,
+      },
+      {
+        path: "/dashboard/company-chart",
+        element: <CompanyChart />,
       },
       {
         path: "/dashboard/company",
