@@ -1,7 +1,10 @@
 import { createBrowserRouter } from "react-router-dom";
-import DashboardLayout from "../components/Layouts/DashboardLayout";
-import MainLayout from "../components/Layouts/MainLayout";
+
+
 import PrivateRoutes from "./PrivateRoute";
+import MainLayout from "../components/layouts/MainLayout";
+import DashboardLayout from "../components/layouts/DashboardLayout";
+import ViewJob from "../pages/dashboard/job/ViewJob";
 
 const routes = createBrowserRouter([
   {
@@ -16,7 +19,12 @@ const routes = createBrowserRouter([
         <DashboardLayout />
       </PrivateRoutes>
     ),
-    children: [],
+    children: [
+      {
+        path: "/dashboard/job",
+        element: <ViewJob />,
+      },
+    ],
   },
 ]);
 export default routes;
