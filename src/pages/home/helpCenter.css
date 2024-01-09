@@ -1,0 +1,49 @@
+.container {
+  width: 100%;
+  padding: 3rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.textContent {
+  width: 35%;
+}
+
+.textContent p {
+  font-size: 1.2rem;
+  margin: 1.8rem 0;
+  line-height: 1.5rem;
+  color: #696666;
+  letter-spacing: 1px;
+}
+
+.textContent button {
+  padding: 1rem 2rem;
+  border-radius: 0.5rem;
+  border: none;
+  background: #1967d2;
+  color: white;
+  font-size: 1rem;
+  letter-spacing: 2px;
+}
+
+.image {
+  width: 100%;
+  height: auto;
+}
+
+@media screen and (max-width: 768px) {
+  .container {
+    flex-direction: column-reverse;
+    padding: 0;
+  }
+
+  .textContent {
+    width: 80%;
+    margin: 2rem auto;
+  }
+}
+
+@media screen and (max-width: 480px) {
+}

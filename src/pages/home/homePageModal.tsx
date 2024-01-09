@@ -1,0 +1,52 @@
+/* eslint-disable @typescript-eslint/no-explicit-any */
+import { Button, Form, Input } from "antd";
+import { Link } from "react-router-dom";
+
+const HomePageModal = () => {
+  const onFinish = (values: any) => {
+    console.log("Form values:", values);
+  };
+
+  return (
+    <div>
+      <p style={{ fontSize: "1rem", marginTop: "1rem", marginBottom: ".5rem" }}>
+        Dont have an account?? <Link to="/company-sign-up">Sign up</Link>
+      </p>
+      <p
+        style={{
+          fontSize: "1.2rem",
+          color: "#666",
+          marginBottom: "1rem",
+        }}
+      ></p>
+      <Form
+        name="myForm"
+        onFinish={onFinish}
+        labelCol={{ span: 24 }}
+        wrapperCol={{ span: 24 }}
+      >
+        <Form.Item
+          label="Company name"
+          name="companyName"
+          rules={[{ required: true, message: "Please input Company name!" }]}
+        >
+          <Input style={{ width: "100%", marginTop: "-.5rem" }} size="large" />
+        </Form.Item>
+
+        <Form.Item
+          label="Email"
+          name="email"
+          rules={[{ required: true, message: "Please input Email!" }]}
+        >
+          <Input style={{ width: "100%", marginTop: "-.5rem" }} size="large" />
+        </Form.Item>
+
+        <Button style={{ marginTop: ".7rem" }} type="primary" htmlType="submit">
+          Continue
+        </Button>
+      </Form>
+    </div>
+  );
+};
+
+export default HomePageModal;

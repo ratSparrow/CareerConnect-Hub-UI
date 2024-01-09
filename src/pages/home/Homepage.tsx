@@ -1,5 +1,15 @@
+import HelpCenter from "./HelpCenter";
+import HomeBlog from "./HomeBlog";
+import HomePageBanner from "./HomePageBanner";
+
 const Homepage = () => {
-  return <div>this is homepage</div>;
+  return (
+    <div>
+      <HomePageBanner></HomePageBanner>
+      <HomeBlog></HomeBlog>
+      <HelpCenter />
+    </div>
+  );
 };
 
 export default Homepage;
