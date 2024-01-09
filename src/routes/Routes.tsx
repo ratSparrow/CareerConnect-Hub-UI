@@ -5,13 +5,24 @@ import { createBrowserRouter } from "react-router-dom";
 import MainLayout from "../components/layouts/MainLayout";
 import DashboardLayout from "../components/layouts/DashboardLayout";
 import ViewJob from "../pages/dashboard/job/ViewJob";
+import Homepage from "../pages/home/Homepage";
 
 const routes = createBrowserRouter([
   {
     path: "/",
     element: <MainLayout />,
-    children: [],
+    children: [
+      {
+        path: "/",
+        element: <Homepage />,
+      },
+      {
+        path: "/blog",
+        element: "blog",
+      },
+    ],
   },
+
   {
     path: "/dashboard",
     element: (
@@ -23,6 +34,10 @@ const routes = createBrowserRouter([
       {
         path: "/dashboard/job",
         element: <ViewJob />,
+      },
+      {
+        path: "/dashboard/company",
+        element: "company",
       },
     ],
   },

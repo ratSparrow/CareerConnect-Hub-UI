@@ -2,8 +2,8 @@ import { useEffect, useState } from "react";
 import { isLoggedIn } from "../../services/auth.service";
 import { Layout, Row, Space, Spin } from "antd";
 import { Navigate, Outlet, useLocation } from "react-router-dom";
-import SideBar from "../../components/ui/dashboard/Sidebar";
-import Contents from "../../components/ui/dashboard/Contents";
+import SideBar from "../ui/dashboard/common/Sidebar";
+import Contents from "../ui/dashboard/common/Contents";
 
 const DashboardLayout = () => {
   const { pathname } = useLocation();
