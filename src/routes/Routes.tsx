@@ -1,7 +1,7 @@
 import { createBrowserRouter } from "react-router-dom";
 
 
-import PrivateRoutes from "./PrivateRoute";
+// import PrivateRoutes from "./PrivateRoute";
 import MainLayout from "../components/layouts/MainLayout";
 import DashboardLayout from "../components/layouts/DashboardLayout";
 import ViewJob from "../pages/dashboard/job/ViewJob";
@@ -15,9 +15,9 @@ const routes = createBrowserRouter([
   {
     path: "/dashboard",
     element: (
-      <PrivateRoutes>
-        <DashboardLayout />
-      </PrivateRoutes>
+      // <PrivateRoutes>
+      <DashboardLayout />
+      // </PrivateRoutes>
     ),
     children: [
       {

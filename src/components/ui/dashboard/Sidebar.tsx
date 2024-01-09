@@ -3,7 +3,8 @@ import { useState } from "react";
 import { Layout, Menu } from "antd";
 import { getUserInfo } from "../../../services/auth.service";
 import { Link } from "react-router-dom";
-import { sidebarItems } from "../../Constant/sidebarItems";
+import { sidebarItems } from "../../constant/sidebarItems";
+
 
 const { Sider } = Layout;
 
