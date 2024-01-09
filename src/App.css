@@ -1,0 +1,30 @@
+/* ------------------ Header styles -------------------- */
+.custom-menu .ant-menu-item:hover {
+    color: white !important;
+}
+
+@media screen and (max-width: 500px) {
+    .headerMenu {
+        display: none;
+    }
+
+    .menuIcon {
+        display: flex;
+        align-items: center;
+        justify-content: end;
+    }
+}
+
+@media screen and (min-width: 500px) {
+    .menuIcon {
+        display: none;
+    }
+
+    .headerMenu {
+        display: flex;
+        align-items: center;
+        justify-content: start;
+    }
+}
+
+/* ------------------ Header styles end -------------------- */

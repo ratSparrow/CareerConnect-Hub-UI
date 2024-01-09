@@ -1,6 +1,7 @@
 import { Navigate, useLocation } from "react-router-dom";
-import { authEmail, authKey } from "../components/Constant/authKey";
+
 import { getFromLocalStorage } from "../helpers/utils/saveData";
+import { authEmail, authKey } from "../components/constant/authKey";
 
 const PrivateRoutes = ({ children }: { children: React.ReactNode }) => {
   const { pathname } = useLocation();
