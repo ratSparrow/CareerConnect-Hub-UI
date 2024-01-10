@@ -8,7 +8,7 @@ import { useJobQuery } from "../../redux/api/jobApi";
 
 const JobDetails = async ({ params }: any) => {
     const { id } = params;
-    const { data, isLoading } = useJobQuery(id);
+    const { data } = useJobQuery(id);
 
   return (
     <>

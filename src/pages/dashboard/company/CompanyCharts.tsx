@@ -18,7 +18,7 @@ import { useCompaniesQuery } from "../../../redux/api/companyApi";
 
 const CompanyChart = () => {
   const query: Record<string, any> = {};
-  const { data, isLoading } = useCompaniesQuery({ ...query });
+  const { data } = useCompaniesQuery({ ...query });
   const companyData = data?.data;
   console.log(companyData);
 

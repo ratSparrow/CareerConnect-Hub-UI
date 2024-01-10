@@ -7,7 +7,7 @@ import { useAddEducationMutation } from "../../redux/api/educationApi";
 import Form from "../Forms/Form";
 import FormInput from "../Forms/FormInput";
 import FormSelectField from "../Forms/FormSelectField";
-import { educationYearOptions, performanceScale } from "../Constant/global";
+import { educationYearOptions, performanceScale } from "../constant/global";
 
 
 const EducationModal = () => {

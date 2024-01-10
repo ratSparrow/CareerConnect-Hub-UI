@@ -2,16 +2,17 @@
 
 import { Button, Col, Row, message } from "antd";
 import { Navigate, useLocation } from "react-router-dom";
-import {
-  experienceLevelOptions,
-  jobTypeOptions,
-} from "../../../components/Constant/global";
+
 import Form from "../../../components/Forms/Form";
 import FormInput from "../../../components/Forms/FormInput";
 import FormSelectField from "../../../components/Forms/FormSelectField";
 import FormTextArea from "../../../components/Forms/FormTextArea";
 import BreadCrumb from "../../../components/ui/dashboard/common/BreadCrumb";
 import { useAddJobMutation } from "../../../redux/api/jobApi";
+import {
+  experienceLevelOptions,
+  jobTypeOptions,
+} from "../../../components/constant/global";
 
 const CreateJob = () => {
   const [addJob] = useAddJobMutation();

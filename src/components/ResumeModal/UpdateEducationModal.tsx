@@ -7,7 +7,7 @@ import { useEducationQuery, useUpdateEducationMutation } from "../../redux/api/e
 import Form from "../Forms/Form";
 import FormInput from "../Forms/FormInput";
 import FormSelectField from "../Forms/FormSelectField";
-import { educationYearOptions, performanceScale } from "../Constant/global";
+import { educationYearOptions, performanceScale } from "../constant/global";
 
 const UpdateEducationModal = ({ id }: any) => {
   const { data } = useEducationQuery(id);
