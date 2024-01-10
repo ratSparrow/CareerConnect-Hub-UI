@@ -3,6 +3,7 @@ import { createBrowserRouter } from "react-router-dom";
 // import PrivateRoutes from "./PrivateRoute";
 import DashboardLayout from "../components/layouts/DashboardLayout";
 import MainLayout from "../components/layouts/MainLayout";
+import Blog from "../pages/Blog/Blog";
 import Contact from "../pages/Contact/Contact";
 import PrivacyPage from "../pages/Privacy/Privacy";
 import TermsPage from "../pages/Terms/Terms";
@@ -22,7 +23,7 @@ const routes = createBrowserRouter([
       },
       {
         path: "/blog",
-        element: "blog",
+        element: <Blog />,
       },
       {
         path: "/contact",
