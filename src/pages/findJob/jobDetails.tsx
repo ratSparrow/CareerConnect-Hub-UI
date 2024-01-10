@@ -1,103 +1,147 @@
 import { Link, useParams } from "react-router-dom";
 import { useJobQuery } from "../../redux/api/jobApi";
-import { Button, Card, Flex } from "antd";
+import { Button, Card, Divider, Flex } from "antd";
 import { RiseOutlined } from "@ant-design/icons";
 
 const JobDetails = () => {
   const { id } = useParams();
   const { data } = useJobQuery(id);
+
   return (
     <>
-      <h2
+      <div
         style={{
-          color: "#123770",
-          marginBottom: "20px",
-          fontSize: "30px",
-          textAlign: "center",
-          marginTop: "30px"
+          maxWidth: "800px",
+          margin: "auto",
+          padding: "20px",
+          marginTop: "30px",
+          background: "#fff",
+          boxShadow: "0 4px 8px rgba(0, 0, 0, 0.1)",
+          borderRadius: "8px",
         }}
       >
-        {data?.data?.title}
-      </h2>
-      <Flex justify="center">
-        <div
+        <h2
           style={{
-            width: "60%",
-            height: "100%",
-            border: "1px solid #D6D6D6",
-            borderRadius: "5px",
-            margin: "20px 0",
+            color: "#123770",
+            fontSize: "30px",
+            textAlign: "center",
+            marginBottom: "20px",
           }}
         >
+          {data?.data?.title}
+        </h2>
+
+        <div style={{ textAlign: "center" }}>
           <div
             style={{
-              padding: "0 20px",
-              paddingTop: "20px",
-              color: "blue",
               display: "flex",
-              gap: "5px",
+              alignItems: "center",
+              color: "#1890ff",
+              marginBottom: "20px",
             }}
           >
-            <RiseOutlined /> <p>Active Hiring</p>
+            <RiseOutlined style={{ fontSize: "20px", marginRight: "5px" }} />
+            <p style={{ margin: 0, fontSize: "16px" }}>Active Hiring</p>
           </div>
-          <Card bordered={false}>
-            <h3 style={{ fontSize: "20px" }}>{data?.data?.title}</h3>
-            <p>{data?.data?.company}</p>
-            <br />
-            <p>Location: {data?.data?.location}</p>
-            <br />
-            <Flex wrap="wrap" gap="small">
-              <p>JobType: {data?.data?.jobType},</p>
-              <p> Joining Date: {data?.data?.joiningDate},</p>
-              <p>CTC: {data?.data?.salary},</p>
-              <p>Experience: {data?.data?.experienceLevel}</p>
-            </Flex>
-            <br />
+        </div>
+
+        <Card bordered={false}>
+          <h3 style={{ fontSize: "20px", marginBottom: "10px" }}>
+            {data?.data?.title}
+          </h3>
+          <p>{data?.data?.company}</p>
+
+          <Divider />
+
+          <Flex wrap="wrap" gap="20px">
             <div>
-              <h4>About {data?.data?.company}</h4>
-              <p>{data?.data?.companyDescription}</p>
+              <h4>Location</h4>
+              <p>{data?.data?.location}</p>
             </div>
             <div>
-              <h4>About Job</h4>
-              <p>{data?.data?.jobDescription}</p>
+              <h4>Job Type</h4>
+              <p>{data?.data?.jobType}</p>
             </div>
             <div>
-              <h4>Key responsibilities:</h4>
-              <p>{data?.data?.keyResponsibilities}</p>
+              <h4>Joining Date</h4>
+              <p>{data?.data?.joiningDate}</p>
             </div>
             <div>
-              <h4>Skill(s) required</h4>
-              <p>{data?.data?.skills}</p>
-            </div>
-            <div>
-              <h4>Salary</h4>
+              <h4>CTC</h4>
               <p>{data?.data?.salary}</p>
             </div>
             <div>
-              <h4>Additional Information</h4>
-              <p>{data?.data?.benefits}</p>
+              <h4>Experience</h4>
+              <p>{data?.data?.experienceLevel}</p>
             </div>
-            <div>
-              <h4>Number of openings</h4>
-              <p>{data?.data?.numberOfOpenings}</p>
-            </div>
+          </Flex>
 
-            <Flex
-              wrap="wrap"
-              gap="small"
-              justify="center"
-              align="center"
-              style={{
-                padding: "20px 0",
-              }}
-            >
-              <Link to="/login">
-                <Button type="primary">Apply Now</Button>
-              </Link>
-            </Flex>
-          </Card>
-        </div>
-      </Flex>
+          <Divider />
+
+          <div>
+            <h4>About {data?.data?.company}</h4>
+            <p>{data?.data?.companyDescription}</p>
+          </div>
+
+          <Divider />
+
+          <div>
+            <h4>About Job</h4>
+            <p>{data?.data?.jobDescription}</p>
+          </div>
+
+          <div>
+            <h4>Key Responsibilities</h4>
+            <p>{data?.data?.keyResponsibilities}</p>
+          </div>
+
+          <Divider />
+
+          <div>
+            <h4>Skill(s) Required</h4>
+            <p>{data?.data?.skills}</p>
+          </div>
+
+          <Divider />
+
+          <div>
+            <h4>Salary</h4>
+            <p>{data?.data?.salary}</p>
+          </div>
+
+          <Divider />
+
+          <div>
+            <h4>Benefits</h4>
+            <p>{data?.data?.benefits}</p>
+          </div>
+
+          <Divider />
+
+          <div>
+            <h4>Number of Openings</h4>
+            <p>{data?.data?.numberOfOpenings}</p>
+          </div>
+
+          <Divider />
+
+          <Flex
+            wrap="wrap"
+            gap="20px"
+            justify="center"
+            align="center"
+            style={{
+              padding: "20px 0",
+            }}
+          >
+            <Link to="/login">
+              <Button type="primary" style={{ width: "200px" }}>
+                Apply Now
+              </Button>
+            </Link>
+          </Flex>
+        </Card>
+      </div>
     </>
   );
 };
