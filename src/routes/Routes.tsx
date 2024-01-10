@@ -12,6 +12,7 @@ import Homepage from "../pages/home/Homepage";
 import CompanyChart from "../pages/dashboard/company/CompanyCharts";
 import MainLayout from "../components/layouts/MainLayout";
 import DashboardLayout from "../components/layouts/DashboardLayout";
+import UserProfile from "../pages/user/Profile";
 
 const routes = createBrowserRouter([
   {
@@ -33,6 +34,10 @@ const routes = createBrowserRouter([
       {
         path: "/register",
         element: <RegisterPage />,
+      },
+      {
+        path: "/user-profile",
+        element: <UserProfile />,
       },
     ],
   },

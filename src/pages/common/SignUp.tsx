@@ -1,8 +1,9 @@
+/* eslint-disable @typescript-eslint/ban-ts-comment */
 /* eslint-disable @typescript-eslint/no-explicit-any */
 import { Button, Col, Row, message } from "antd";
 import { useState } from "react";
 import { SubmitHandler } from "react-hook-form";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import Form from "../../components/Form/Form";
 import FormInput from "../../components/Form/FormInput";
 import { useUserSignupMutation } from "../../redux/api/authApi";
@@ -18,6 +19,7 @@ type FormValues = {
 
 const RegisterPage = () => {
   const [userSignup] = useUserSignupMutation();
+  const navigate = useNavigate();
 
   const [scale, setScale] = useState(1);
 
@@ -34,8 +36,10 @@ const RegisterPage = () => {
       console.log(data);
 
       const res = await userSignup(registerData);
+      //@ts-ignore
       if (res?.data?.success === true) {
         message.success("User registered successfully!");
+        navigate("/login");
       } else {
         return message.error("Wrong credential!");
       }
