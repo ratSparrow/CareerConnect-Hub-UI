@@ -4,15 +4,14 @@ import { createBrowserRouter } from "react-router-dom";
 
 import CreateJob from "../pages/dashboard/job/CreateJob";
 import ViewJobs from "../pages/dashboard/job/ViewJobs";
-
 import LoginPage from "../pages/common/Login";
 import RegisterPage from "../pages/common/SignUp";
-
 import Homepage from "../pages/home/Homepage";
 import CompanyChart from "../pages/dashboard/company/CompanyCharts";
-import MainLayout from "../components/layouts/MainLayout";
-import DashboardLayout from "../components/layouts/DashboardLayout";
 import UserProfile from "../pages/user/Profile";
+import MainLayout from "../components/Layouts/MainLayout";
+import DashboardLayout from "../components/Layouts/DashboardLayout";
+import ResumePage from "../pages/resume/Resume";
 
 const routes = createBrowserRouter([
   {
@@ -39,6 +38,10 @@ const routes = createBrowserRouter([
         path: "/user-profile",
         element: <UserProfile />,
       },
+      {
+        path: "/resume",
+        element: <ResumePage />,
+      }
     ],
   },
 

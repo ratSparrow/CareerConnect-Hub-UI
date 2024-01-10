@@ -208,7 +208,7 @@ const NavBar = () => {
             }}
           />
           <Link
-            to="/job-list"
+            to="/find-job"
             style={{
               color: "white",
               fontSize: "0.9rem",
