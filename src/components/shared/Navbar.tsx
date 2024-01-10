@@ -32,60 +32,30 @@ const NavBar = () => {
     const { role } = getUserInfo() as any;
     setRole(role);
   }, []);
+  // console.log(role);
 
   const handleLogout = (accessToken: string) => {
     removeUserInfo(accessToken);
     return <Navigate to="/login" state={{ path: pathname }} />;
   };
 
-  // console.log(role);
-
   const items: MenuProps["items"] = [
-    // {
-    //   key: "0",
-    //   label: (
-    //     <div
-    //       style={{
-    //         // fontSize: "1.2rem",
-    //         width: "100%",
-    //         display: "flex",
-    //         justifyContent: "center",
-    //         alignItems: "center",
-    //       }}
-    //     >
-
-    //     </div>
-    //   ),
-    // },
     {
       key: "1",
-      label: (
-        <Link to={`/dashboard`}>
-          <Button
-            type="primary"
-            size="large"
-            style={{
-              fontSize: "1.2rem",
-              display: "flex",
-              justifyContent: "center",
-              alignItems: "center",
-            }}
-          >
-            Dashboard
-          </Button>
-        </Link>
-      ),
+      label: <Link to={`/user-profile`}>Profile</Link>,
+    },
+    {
+      key: "2",
+      label: <Link to={`/resume`}>Edit Resume</Link>,
+    },
+    {
+      key: "3",
+      label: <Link to={`/my-application`}>My Application</Link>,
     },
   ];
 
   return (
-    <div
-      style={
-        {
-          // height: "100vh",
-        }
-      }
-    >
+    <div style={{}}>
       <div
         style={{
           backgroundColor: "#2d2d2d",
@@ -164,7 +134,6 @@ const NavBar = () => {
               onClick={() => handleLogout("accessToken")}
               size="large"
               type="primary"
-              danger
               style={{
                 fontSize: "1rem",
                 fontWeight: "bold",
