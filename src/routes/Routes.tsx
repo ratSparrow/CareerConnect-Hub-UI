@@ -10,9 +10,11 @@ import RegisterPage from "../pages/common/SignUp";
 
 import Homepage from "../pages/home/Homepage";
 import CompanyChart from "../pages/dashboard/company/CompanyCharts";
-import MainLayout from "../components/layouts/MainLayout";
-import DashboardLayout from "../components/layouts/DashboardLayout";
+
 import UserProfile from "../pages/user/Profile";
+import AppliedJobs from "../pages/dashboard/job/AppliedJobs";
+import MainLayout from "../components/Layouts/MainLayout";
+import DashboardLayout from "../components/Layouts/DashboardLayout";
 
 const routes = createBrowserRouter([
   {
@@ -61,6 +63,10 @@ const routes = createBrowserRouter([
       {
         path: "/dashboard/company-chart",
         element: <CompanyChart />,
+      },
+      {
+        path: "/dashboard/job/applied-jobs",
+        element: <AppliedJobs />,
       },
       {
         path: "/dashboard/company",

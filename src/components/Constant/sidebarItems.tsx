@@ -67,8 +67,8 @@ export const sidebarItems = (role: string) => {
           key: `/${role}/dashboard/job/create`,
         },
         {
-          label: <Link to="/dashboard/job/appliedJob">Applied Jobs</Link>,
-          key: `/${role}/dashboard/job/appliedJob`,
+          label: <Link to="/dashboard/job/applied-jobs">Applied Jobs</Link>,
+          key: `/${role}/dashboard/job/applied-jobs`,
         },
       ],
     },
@@ -91,5 +91,5 @@ export const sidebarItems = (role: string) => {
   // if (role === USER_ROLE.ADMIN) return adminSidebarItems;
   // else if (role === USER_ROLE.RECRUITER) return recruiterSidebarItems;
 
-  return adminSidebarItems;
+  return recruiterSidebarItems;
 };
