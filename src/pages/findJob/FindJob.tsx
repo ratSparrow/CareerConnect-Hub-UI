@@ -1,7 +1,7 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
 
 import { useJobsQuery } from "../../redux/api/jobApi";
-import { Button, Card, Col, Flex, Input, Row } from "antd";
+import { Button, Card, Checkbox, Col, Divider, Flex, Input, Row } from "antd";
 import { IJobData } from "../../types";
 import { RiseOutlined } from "@ant-design/icons";
 import { Link } from "react-router-dom";
@@ -54,36 +54,17 @@ const FindJob = () => {
       </div>
 
       <Row gutter={[16, 24]}>
-        <Col
-          xs={24}
-          sm={24}
-          md={8}
-          lg={8}
-          xl={8}
-          style={{
-            textAlign: "center",
-          }}
-        >
-          <h3>Search Criteria</h3>
-          <p
+        <Col xs={24} sm={24} md={8} lg={8} xl={8}>
+          <h3
             style={{
-              marginTop: "5px",
-              marginBottom: "15px",
+              textAlign: "center",
+              margin: "20px 0",
             }}
           >
-            As per my{" "}
-            <span
-              style={{
-                color: "#4096FF",
-                fontWeight: "bold",
-              }}
-            >
-              preferences
-            </span>
-          </p>
+            Search Criteria
+          </h3>
           <Flex>
             <Input
-              style={{}}
               placeholder="Search for jobs"
               size="large"
               value={searchQuery}
@@ -93,6 +74,48 @@ const FindJob = () => {
               Search
             </Button>
           </Flex>
+
+          <Divider plain>Or</Divider>
+
+          <div>
+            <h3
+              style={{
+                textAlign: "center",
+                marginBottom: "20px",
+              }}
+            >
+              Filters
+            </h3>
+            <Checkbox>
+              As per my{" "}
+              <span
+                style={{
+                  color: "#4096FF",
+                  fontWeight: "bold",
+                }}
+              >
+                preferences
+              </span>
+            </Checkbox>
+          </div>
+
+          <div style={{ margin: "20px 0" }}>
+            <p>Profile</p>
+            <Input size="large" placeholder="e.g. marketing" />
+          </div>
+          <div style={{ margin: "20px 0" }}>
+            <p>Location</p>
+            <Input size="large" placeholder="e.g. Dhaka" />
+          </div>
+          <div>
+            <Checkbox>Work from home</Checkbox>
+          </div>
+          <div style={{ margin: "20px 0" }}>
+            <Checkbox>Part-time</Checkbox>
+          </div>
+          <div>
+            <Checkbox>Include all internships matching filters</Checkbox>
+          </div>
         </Col>
 
         <Col xs={24} sm={24} md={16} lg={16} xl={16}>
