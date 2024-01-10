@@ -1,19 +1,17 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
 
-"use client";
-
+import { DeleteOutlined, EditOutlined, PlusOutlined } from "@ant-design/icons";
+import { Button, Col, Flex, Row, message } from "antd";
 import { useState } from "react";
 import {
   useDeleteTrainingMutation,
   useTrainingsQuery,
 } from "../../redux/api/trainingApi";
 import { getUserInfo } from "../../services/auth.service";
-import { Button, Col, Flex, Row, message } from "antd";
 import { ITraining } from "../../types";
-import { DeleteOutlined, EditOutlined, PlusOutlined } from "@ant-design/icons";
-import GlobalModal from "../shared/GlobalModal";
 import TrainingModal from "../ResumeModal/TrainingModal";
 import UpdateTrainingModal from "../ResumeModal/UpdateTrainingModal";
+import GlobalModal from "../shared/GlobalModal";
 
 const Training = () => {
   const [open, setOpen] = useState(false);

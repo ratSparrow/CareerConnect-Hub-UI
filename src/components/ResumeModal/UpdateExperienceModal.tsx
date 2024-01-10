@@ -1,15 +1,16 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
 
-"use client";
-
 import { Button, message } from "antd";
-import { useUpdateWorkExperienceMutation, useWorkExperienceQuery } from "../../redux/api/workExperienceApi";
+import {
+  useUpdateWorkExperienceMutation,
+  useWorkExperienceQuery,
+} from "../../redux/api/workExperienceApi";
 import Form from "../Forms/Form";
 import FormInput from "../Forms/FormInput";
 import FormTextArea from "../Forms/FormTextArea";
 
 const UpdateExperienceModal = ({ id }: any) => {
-  const { data } = useWorkExperienceQuery(id); 
+  const { data } = useWorkExperienceQuery(id);
   const [updateWorkExperience] = useUpdateWorkExperienceMutation();
 
   const onSubmit = async (data: any) => {
@@ -49,7 +50,7 @@ const UpdateExperienceModal = ({ id }: any) => {
         Graduation details/ Post graduation details
       </p>
       <Form submitHandler={onSubmit} defaultValues={defaultValues}>
-      <div style={{ width: "100%", marginTop: "-.5rem" }}>
+        <div style={{ width: "100%", marginTop: "-.5rem" }}>
           <FormInput name="profile" type="text" label="Profile" />
         </div>
         <div style={{ width: "100%", marginTop: "-.5rem" }}>

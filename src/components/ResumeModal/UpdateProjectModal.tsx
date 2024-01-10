@@ -1,9 +1,10 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
 
-"use client";
-
 import { Button, message } from "antd";
-import { useProjectQuery, useUpdateProjectMutation } from "../../redux/api/projectApi";
+import {
+  useProjectQuery,
+  useUpdateProjectMutation,
+} from "../../redux/api/projectApi";
 import Form from "../Forms/Form";
 import FormInput from "../Forms/FormInput";
 import FormTextArea from "../Forms/FormTextArea";
@@ -30,7 +31,7 @@ const UpdateProjectModal = ({ id }: any) => {
     startYear: data?.data?.startYear || "",
     endYear: data?.data?.endYear || "",
     description: data?.data?.description || "",
-    projectLink: data?.data?.projectLink || ""
+    projectLink: data?.data?.projectLink || "",
   };
 
   return (
@@ -79,7 +80,9 @@ const UpdateProjectModal = ({ id }: any) => {
             size="large"
           />
         </div>
-        <div style={{ display: "flex", justifyContent: "end", marginTop: "10px" }}>
+        <div
+          style={{ display: "flex", justifyContent: "end", marginTop: "10px" }}
+        >
           <Button type="primary" htmlType="submit">
             Save
           </Button>

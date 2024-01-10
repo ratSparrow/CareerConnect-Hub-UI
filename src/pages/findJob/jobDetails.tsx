@@ -2,9 +2,10 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
 
 import { RiseOutlined } from "@ant-design/icons";
-import { Button, Card, Flex, List } from "antd";
+import { Button, Card, Flex } from "antd";
 import { Link } from "react-router-dom";
 import { useJobQuery } from "../../redux/api/jobApi";
+
 
 const JobDetails = async ({ params }: any) => {
     const { id } = params;
@@ -56,7 +57,7 @@ const JobDetails = async ({ params }: any) => {
             </div>
             <div>
               <h4>Key responsibilities:</h4>
-              <List>{data?.data?.keyResponsibilities}</List>
+              <p>{data?.data?.keyResponsibilities}</p>
             </div>
             <div>
               <h4>Skill(s) required</h4>

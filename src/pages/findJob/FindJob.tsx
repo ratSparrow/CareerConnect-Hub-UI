@@ -11,57 +11,86 @@ const FindJob = () => {
   const { data } = useJobsQuery({ ...query });
   const jobData = data?.data?.data;
   return (
-    <div style={{ padding: "16px" }}>
+    <div style={{ minHeight: "100vh", margin: "30px 50px" }}>
       <div
         style={{
-          display: "flex",
-          flexDirection: "column",
-          justifyContent: "center",
-          alignItems: "center",
           textAlign: "center",
-          marginBottom: "16px",
+          marginBottom: "30px",
         }}
       >
-        <Search
-          placeholder="Search for jobs"
-          enterButton="Search"
-          size="large"
+        <h2
           style={{
-            maxWidth: "500px",
-            width: "100%",
+            color: "#123770",
+            marginBottom: "20px",
           }}
-        />
-      </div>
-      <div
-        style={{
-          textAlign: "center",
-          marginBottom: "16px",
-        }}
-      >
-        <h2>Job Feed</h2>
-        <h4>We are working on your personalized job feed.</h4>
-        <p>In the meantime, run a search to find your next job</p>
+        >
+          Explore Exciting Job Opportunities
+        </h2>
+        <h4>
+          Discover your next career move with personalized job recommendations.
+        </h4>
+        <p>In the meantime, run a search to find your perfect job</p>
       </div>
 
       <Row gutter={[16, 24]}>
+        <Col
+          xs={24}
+          sm={24}
+          md={8}
+          lg={8}
+          xl={8}
+          style={{
+            textAlign: "center",
+          }}
+        >
+          <h3>Search Criteria</h3>
+          <p
+            style={{
+              marginTop: "5px",
+              marginBottom: "15px",
+            }}
+          >
+            As per my{" "}
+            <span
+              style={{
+                color: "#4096FF",
+                fontWeight: "bold",
+              }}
+            >
+              preferences
+            </span>
+          </p>
+          <Search
+            placeholder="Search for jobs"
+            enterButton="Search"
+            size="large"
+            style={{
+              maxWidth: "500px",
+              width: "100%",
+            }}
+          />
+        </Col>
+
         {jobData?.map((job: IJobData) => (
-          <Col xs={24} sm={12} md={8} lg={8} key={job?._id}>
+          <Col xs={24} sm={24} md={16} lg={16} xl={16} key={job?._id}>
             <div
               style={{
                 height: "100%",
-                boxShadow: "0 4px 8px rgba(0, 0, 0, 0.1)",
+                boxShadow: "0px 0px 10px 0px rgba(0,0,0,0.1)",
+                borderRadius: "5px",
               }}
             >
-              <Flex
+              <div
                 style={{
-                  padding: "10px",
+                  padding: "20px",
                   color: "blue",
+                  display: "flex",
+                  gap: "5px"
                 }}
-                wrap="wrap"
-                gap="small"
               >
                 <RiseOutlined /> <p>Active Hiring</p>
-              </Flex>
+              </div>
+
               <Card title={job?.title} bordered={false}>
                 <h4>{job?.company}</h4>
                 <br />
@@ -74,7 +103,7 @@ const FindJob = () => {
                 </Flex>
                 <br />
                 <Flex wrap="wrap" gap="small" justify="end" align="center">
-                  <Link to={`/jobDetails/${job?._id}`}>View Details</Link>
+                  <Link to={`/details/${job?._id}`}>View Details</Link>
                   <Button type="primary">Apply Now</Button>
                 </Flex>
               </Card>

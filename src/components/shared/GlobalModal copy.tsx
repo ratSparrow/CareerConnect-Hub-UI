@@ -1,5 +1,3 @@
-"use client";
-
 import { Modal } from "antd";
 import { ReactNode } from "react";
 

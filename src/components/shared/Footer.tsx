@@ -26,7 +26,7 @@ const Footer = () => {
         <Col
           xs={24}
           sm={12}
-          md={8}
+          md={12}
           lg={6}
           xl={6}
           style={{
@@ -100,7 +100,7 @@ const Footer = () => {
         <Col
           xs={24}
           sm={12}
-          md={8}
+          md={12}
           lg={6}
           xl={6}
           style={{
@@ -147,7 +147,7 @@ const Footer = () => {
         <Col
           xs={24}
           sm={12}
-          md={8}
+          md={12}
           lg={6}
           xl={6}
           style={{
@@ -195,7 +195,7 @@ const Footer = () => {
         <Col
           xs={24}
           sm={12}
-          md={8}
+          md={12}
           lg={6}
           xl={6}
           style={{

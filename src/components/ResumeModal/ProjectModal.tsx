@@ -1,14 +1,11 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
 
-"use client";
-
 import { Button, message } from "antd";
 import { useAddProjectMutation } from "../../redux/api/projectApi";
 import { getUserInfo } from "../../services/auth.service";
-import Form from "../Forms/Form";
 import FormInput from "../Form/FormInput";
+import Form from "../Forms/Form";
 import FormTextArea from "../Forms/FormTextArea";
-
 
 const ProjectModal = () => {
   const [addProject] = useAddProjectMutation();
@@ -75,7 +72,9 @@ const ProjectModal = () => {
             size="large"
           />
         </div>
-        <div style={{ display: "flex", justifyContent: "end", marginTop: "10px" }}>
+        <div
+          style={{ display: "flex", justifyContent: "end", marginTop: "10px" }}
+        >
           <Button type="primary" htmlType="submit">
             Save
           </Button>

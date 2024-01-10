@@ -1,17 +1,17 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
 
-"use client";
-
-import { useState } from "react";
-import { getUserInfo } from "../../services/auth.service";
-import { useDeleteEducationMutation, useEducationsQuery } from "../../redux/api/educationApi";
-import { Button, Col, Flex, Row, message } from "antd";
-import { IEducation } from "../../types";
 import { DeleteOutlined, EditOutlined, PlusOutlined } from "@ant-design/icons";
-import GlobalModal from "../shared/GlobalModal";
+import { Button, Col, Flex, Row, message } from "antd";
+import { useState } from "react";
+import {
+  useDeleteEducationMutation,
+  useEducationsQuery,
+} from "../../redux/api/educationApi";
+import { getUserInfo } from "../../services/auth.service";
+import { IEducation } from "../../types";
 import EducationModal from "../ResumeModal/EducationModal";
 import UpdateEducationModal from "../ResumeModal/UpdateEducationModal";
-
+import GlobalModal from "../shared/GlobalModal";
 
 const Education = () => {
   const [open, setOpen] = useState(false);
@@ -48,7 +48,6 @@ const Education = () => {
   const filteredByEmail = educationData?.filter(
     (item: any) => item.userEmail === email
   );
-
 
   return (
     <>

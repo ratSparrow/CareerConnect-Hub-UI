@@ -1,9 +1,10 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
 
-"use client";
-
 import { Button, message } from "antd";
-import { usePortfolioQuery, useUpdatePortfolioMutation } from "../../redux/api/portfolioApi";
+import {
+  usePortfolioQuery,
+  useUpdatePortfolioMutation,
+} from "../../redux/api/portfolioApi";
 import Form from "../Forms/Form";
 import FormInput from "../Forms/FormInput";
 

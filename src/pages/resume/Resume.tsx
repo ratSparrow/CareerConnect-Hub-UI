@@ -1,16 +1,12 @@
-"use client";
-
-import {
-  ExclamationCircleOutlined,
-} from "@ant-design/icons";
-import CareerBreadCrumb from "../../components/shared/CareerBreadCrumb";
-import PersonalInfo from "../../components/Resume/personalInfo";
+import { ExclamationCircleOutlined } from "@ant-design/icons";
 import Education from "../../components/Resume/education";
-import WorkExperience from "../../components/Resume/workExperience";
-import Training from "../../components/Resume/training";
+import PersonalInfo from "../../components/Resume/personalInfo";
+import Portfolio from "../../components/Resume/portfolio";
 import Projects from "../../components/Resume/projects";
 import Skills from "../../components/Resume/skills";
-import Portfolio from "../../components/Resume/portfolio";
+import Training from "../../components/Resume/training";
+import WorkExperience from "../../components/Resume/workExperience";
+import CareerBreadCrumb from "../../components/shared/CareerBreadCrumb";
 
 const ResumePage = () => {
   return (

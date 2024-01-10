@@ -1,16 +1,16 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
 
-"use client";
-
-import { useState } from "react";
-import { useDeleteProjectMutation, useProjectsQuery } from "../../redux/api/projectApi";
-import { getUserInfo } from "../../services/auth.service";
-import { Button, Col, Flex, Row, message } from "antd";
 import { DeleteOutlined, EditOutlined, PlusOutlined } from "@ant-design/icons";
-import GlobalModal from "../shared/GlobalModal";
+import { Button, Col, Flex, Row, message } from "antd";
+import { useState } from "react";
+import {
+  useDeleteProjectMutation,
+  useProjectsQuery,
+} from "../../redux/api/projectApi";
+import { getUserInfo } from "../../services/auth.service";
 import ProjectModal from "../ResumeModal/ProjectModal";
 import UpdateProjectModal from "../ResumeModal/UpdateProjectModal";
-
+import GlobalModal from "../shared/GlobalModal";
 
 const Projects = () => {
   const [open, setOpen] = useState(false);

@@ -1,7 +1,5 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
 
-"use client";
-
 import { Button, message } from "antd";
 import { useAddPortfolioMutation } from "../../redux/api/portfolioApi";
 import { getUserInfo } from "../../services/auth.service";
@@ -47,7 +45,9 @@ const PortfolioModal = () => {
         <div style={{ width: "100%", marginTop: "-.5rem" }}>
           <FormInput label="Other work sample link" name="other" size="large" />
         </div>
-        <div style={{ display: "flex", justifyContent: "end", marginTop: "10px" }}>
+        <div
+          style={{ display: "flex", justifyContent: "end", marginTop: "10px" }}
+        >
           <Button type="primary" htmlType="submit">
             Save
           </Button>

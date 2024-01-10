@@ -1,6 +1,4 @@
 /* eslint-disable @typescript-eslint/no-unused-vars */
-"use client";
-
 import { Select } from "antd";
 import { Controller, useFormContext } from "react-hook-form";
 
@@ -44,7 +42,11 @@ const FormSelectField = ({
             size={size}
             options={options}
             value={value}
-            style={{ width: "100%", margin: ".3rem 0", border: "1px solid #159EEC" }}
+            style={{
+              width: "100%",
+              margin: ".3rem 0",
+              border: "1px solid #159EEC",
+            }}
             placeholder={placeholder}
           />
         )}

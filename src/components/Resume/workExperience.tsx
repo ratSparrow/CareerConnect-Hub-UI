@@ -1,18 +1,17 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
 
-"use client";
-
-import { useState } from "react";
-import { useDeleteWorkExperienceMutation, useWorkExperiencesQuery } from "../../redux/api/workExperienceApi";
-import { getUserInfo } from "../../services/auth.service";
-import { Button, Col, Flex, Row, message } from "antd";
-import { IWorkExperience } from "../../types";
 import { DeleteOutlined, EditOutlined, PlusOutlined } from "@ant-design/icons";
-import GlobalModal from "../shared/GlobalModal";
+import { Button, Col, Flex, Row, message } from "antd";
+import { useState } from "react";
+import {
+  useDeleteWorkExperienceMutation,
+  useWorkExperiencesQuery,
+} from "../../redux/api/workExperienceApi";
+import { getUserInfo } from "../../services/auth.service";
+import { IWorkExperience } from "../../types";
 import ExperienceModal from "../ResumeModal/ExperienceModal";
 import UpdateExperienceModal from "../ResumeModal/UpdateExperienceModal";
-
-
+import GlobalModal from "../shared/GlobalModal";
 
 const WorkExperience = () => {
   const [open, setOpen] = useState(false);
@@ -20,7 +19,7 @@ const WorkExperience = () => {
   const [selectedId, setSelectedId] = useState<string | null>(null);
 
   const query: Record<string, any> = {};
-  const { data} = useWorkExperiencesQuery({ ...query });
+  const { data } = useWorkExperiencesQuery({ ...query });
   const experiencesData = data?.data;
   const [deleteWorkExperience] = useDeleteWorkExperienceMutation();
 
@@ -71,7 +70,7 @@ const WorkExperience = () => {
                 align="start"
                 key={exp._id}
               >
-                <div style={{padding: "5px 0"}}>
+                <div style={{ padding: "5px 0" }}>
                   <h4>{exp?.profile}</h4>
                   <p>{exp?.location}</p>
                   <p>
@@ -83,7 +82,7 @@ const WorkExperience = () => {
                   <Button onClick={() => handleEditClick(exp._id)}>
                     <EditOutlined />
                   </Button>
-                 
+
                   <Button onClick={() => deleteHandler(exp?._id)}>
                     <DeleteOutlined />
                   </Button>
@@ -98,7 +97,7 @@ const WorkExperience = () => {
             </Button>
           </div>
           <GlobalModal open={open} setOpen={setOpen} width={650} title={""}>
-            <ExperienceModal/>
+            <ExperienceModal />
           </GlobalModal>
           <GlobalModal
             open={editModalOpen}
