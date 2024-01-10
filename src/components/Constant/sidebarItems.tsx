@@ -91,5 +91,5 @@ export const sidebarItems = (role: string) => {
   // if (role === USER_ROLE.ADMIN) return adminSidebarItems;
   // else if (role === USER_ROLE.RECRUITER) return recruiterSidebarItems;
 
-  return adminSidebarItems;
+  return recruiterSidebarItems;
 };

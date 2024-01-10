@@ -18,6 +18,7 @@ import DashboardLayout from "../components/Layouts/DashboardLayout";
 import CreateBlog from "../pages/dashboard/blog/CreateBlog";
 import ViewBlogs from "../pages/dashboard/blog/ViewBlogs";
 import EditBlog from "../pages/dashboard/blog/EditBlog";
+import EditJob from "../pages/dashboard/job/EditJob";
 
 const routes = createBrowserRouter([
   {
@@ -58,6 +59,10 @@ const routes = createBrowserRouter([
       {
         path: "/dashboard/job",
         element: <ViewJobs />,
+      },
+      {
+        path: "/dashboard/job/edit/:id",
+        element: <EditJob />,
       },
       {
         path: "/dashboard/job/create",

@@ -4,7 +4,7 @@ import { Button, message } from "antd";
 import { useState } from "react";
 import DataTable from "../../../components/ui/dashboard/common/DataTable";
 import { useDeleteJobMutation, useJobsQuery } from "../../../redux/api/jobApi";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 
 const ViewJobs = () => {
   const query: Record<string, any> = {};
@@ -22,6 +22,8 @@ const ViewJobs = () => {
   const jobData = data?.data?.data;
   const [deleteJob] = useDeleteJobMutation();
   // console.log("jobData", jobData);
+
+  const navigate = useNavigate();
 
   const onPaginationChange = (page: number, pageSize: number) => {
     console.log("Page:", page, "PageSize:", pageSize);
@@ -46,6 +48,10 @@ const ViewJobs = () => {
       message.error(err.message);
     }
   };
+
+  const handleEdit = (id: string) => {
+    navigate(`/dashboard/blog/edit/${id}`);
+  }
 
   const columns = [
     {
@@ -80,7 +86,7 @@ const ViewJobs = () => {
                 style={{
                   margin: "0px 5px",
                 }}
-                onClick={() => console.log(data)}
+                onClick={() => handleEdit(data)}
                 type="primary"
               >
                 <EditOutlined />
