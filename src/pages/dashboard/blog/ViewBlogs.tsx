@@ -1,36 +1,36 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
+
 import { DeleteOutlined, EditOutlined } from "@ant-design/icons";
 import { Button, message } from "antd";
 import { useState } from "react";
-import DataTable from "../../../components/ui/dashboard/common/DataTable";
-import { useDeleteJobMutation, useJobsQuery } from "../../../redux/api/jobApi";
+import { useBlogsQuery, useDeleteBlogMutation } from "../../../redux/api/blogApi";
 import { Link, useNavigate } from "react-router-dom";
+import DataTable from "../../../components/ui/dashboard/common/DataTable";
 
-const ViewJobs = () => {
+const ViewBlogs = () => {
   const query: Record<string, any> = {};
   const [page, setPage] = useState<number>(1);
   const [size, setSize] = useState<number>(10);
   const [sortBy, setSortBy] = useState<string>("");
   const [sortOrder, setSortOrder] = useState<string>("");
 
+  const navigate = useNavigate();
+
   query["limit"] = size;
   query["page"] = page;
   query["sortBy"] = sortBy;
   query["sortOrder"] = sortOrder;
 
-  const { data, isLoading } = useJobsQuery({ ...query });
-  const jobData = data?.data?.data;
-  const [deleteJob] = useDeleteJobMutation();
-  // console.log("jobData", jobData);
-
-  const navigate = useNavigate();
+  const { data, isLoading } = useBlogsQuery({ ...query });
+  const blogData = data?.data;
+  const [deleteBlog] = useDeleteBlogMutation();
 
   const onPaginationChange = (page: number, pageSize: number) => {
     console.log("Page:", page, "PageSize:", pageSize);
     setPage(page);
     setSize(pageSize);
   };
-  const onTableChange = (sorter: any) => {
+  const onTableChange = (pagination: any, filter: any, sorter: any) => {
     const { order, field } = sorter;
     // console.log(order, field);
     setSortBy(field as string);
@@ -40,9 +40,9 @@ const ViewJobs = () => {
   const deleteHandler = async (id: string) => {
     message.loading("Deleting.....");
     try {
-      const res = await deleteJob(id);
+      const res = await deleteBlog(id);
       if (res) {
-        message.success("Job Deleted successfully");
+        message.success("Blog Deleted successfully");
       }
     } catch (err: any) {
       message.error(err.message);
@@ -59,21 +59,12 @@ const ViewJobs = () => {
       dataIndex: "title",
     },
     {
-      title: "Company",
-      dataIndex: "company",
+      title: "Author",
+      dataIndex: "author",
     },
     {
-      title: "Location",
-      dataIndex: "location",
-    },
-    {
-      title: "Salary",
-      dataIndex: "salary",
-      sorter: true,
-    },
-    {
-      title: "Job Type",
-      dataIndex: "jobType",
+      title: "PublishDate",
+      dataIndex: "publishDate",
     },
     {
       title: "Action",
@@ -81,7 +72,7 @@ const ViewJobs = () => {
       render: function (data: any) {
         return (
           <>
-            <Link to={`/dashboard/job/edit/${data}`}>
+            <Link to={`/dashboard/blog/edit/${data}`}>
               <Button
                 style={{
                   margin: "0px 5px",
@@ -92,7 +83,11 @@ const ViewJobs = () => {
                 <EditOutlined />
               </Button>
             </Link>
-            <Button onClick={() => deleteHandler(data)} type="primary" danger>
+            <Button
+              onClick={() => deleteHandler(data)}
+              type="primary"
+              danger
+            >
               <DeleteOutlined />
             </Button>
           </>
@@ -110,12 +105,12 @@ const ViewJobs = () => {
           margin: "30px 0",
         }}
       >
-        Job Details
+        Blog Details
       </h2>
       <DataTable
         loading={isLoading}
         columns={columns}
-        dataSource={jobData}
+        dataSource={blogData}
         showSizeChanger={true}
         showPagination={true}
         pageSize={size}
@@ -126,4 +121,4 @@ const ViewJobs = () => {
   );
 };
 
-export default ViewJobs;
+export default ViewBlogs;

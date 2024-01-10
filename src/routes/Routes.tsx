@@ -1,19 +1,21 @@
 import { createBrowserRouter } from "react-router-dom";
-
-// import PrivateRoutes from "./PrivateRoute";
-
 import CreateJob from "../pages/dashboard/job/CreateJob";
 import ViewJobs from "../pages/dashboard/job/ViewJobs";
 import LoginPage from "../pages/common/Login";
 import RegisterPage from "../pages/common/SignUp";
 import Homepage from "../pages/home/Homepage";
 import CompanyChart from "../pages/dashboard/company/CompanyCharts";
+import MainLayout from "../components/layouts/MainLayout";
+import DashboardLayout from "../components/layouts/DashboardLayout";
 import UserProfile from "../pages/user/Profile";
 import ResumePage from "../pages/resume/Resume";
 import FindJob from "../pages/findJob/FindJob";
-import JobDetails from "../pages/findJob/JobDetails";
-import MainLayout from "../components/Layouts/MainLayout";
-import DashboardLayout from "../components/Layouts/DashboardLayout";
+import JobDetails from "../pages/findJob/jobDetails";
+import EditJob from "../pages/dashboard/job/EditJob";
+import AppliedJobs from "../pages/dashboard/job/AppliedJobs";
+import CreateBlog from "../pages/dashboard/blog/CreateBlog";
+import ViewBlogs from "../pages/dashboard/blog/ViewBlogs";
+import EditBlog from "../pages/dashboard/blog/EditBlog";
 
 const routes = createBrowserRouter([
   {
@@ -50,8 +52,8 @@ const routes = createBrowserRouter([
       },
       {
         path: "/details/:id",
-        element: <JobDetails/>,
-      }
+        element: <JobDetails />,
+      },
     ],
   },
 
@@ -68,6 +70,10 @@ const routes = createBrowserRouter([
         element: <ViewJobs />,
       },
       {
+        path: "/dashboard/job/edit/:id",
+        element: <EditJob />,
+      },
+      {
         path: "/dashboard/job/create",
         element: <CreateJob />,
       },
@@ -76,8 +82,20 @@ const routes = createBrowserRouter([
         element: <CompanyChart />,
       },
       {
-        path: "/dashboard/company",
-        element: "company",
+        path: "/dashboard/job/applied-jobs",
+        element: <AppliedJobs />,
+      },
+      {
+        path: "/dashboard/blog/create",
+        element: <CreateBlog />,
+      },
+      {
+        path: "/dashboard/blog",
+        element: <ViewBlogs />,
+      },
+      {
+        path: "/dashboard/blog/edit/:id",
+        element: <EditBlog />,
       },
     ],
   },
