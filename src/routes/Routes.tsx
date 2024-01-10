@@ -3,6 +3,8 @@ import { createBrowserRouter } from "react-router-dom";
 // import PrivateRoutes from "./PrivateRoute";
 import DashboardLayout from "../components/layouts/DashboardLayout";
 import MainLayout from "../components/layouts/MainLayout";
+import PrivacyPage from "../pages/Privacy/Privacy";
+import TermsPage from "../pages/Terms/Terms";
 import LoginPage from "../pages/common/Login";
 import RegisterPage from "../pages/common/SignUp";
 import ViewJob from "../pages/dashboard/job/ViewJob";
@@ -20,6 +22,14 @@ const routes = createBrowserRouter([
       {
         path: "/blog",
         element: "blog",
+      },
+      {
+        path: "/terms",
+        element: <TermsPage />,
+      },
+      {
+        path: "/privacy",
+        element: <PrivacyPage />,
       },
       {
         path: "/login",
