@@ -1,7 +1,7 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
 import Search from "antd/es/input/Search";
 import { useJobsQuery } from "../../redux/api/jobApi";
-import { Button, Card, Col, Flex, Row } from "antd";
+import { Button, Card, Col, Divider, Flex, Row } from "antd";
 import { IJobData } from "../../types";
 import { RiseOutlined } from "@ant-design/icons";
 import { Link } from "react-router-dom";
@@ -22,7 +22,7 @@ const FindJob = () => {
           style={{
             color: "#123770",
             marginBottom: "20px",
-            fontSize: "30px"
+            fontSize: "30px",
           }}
         >
           Explore Exciting Job Opportunities
@@ -61,11 +61,7 @@ const FindJob = () => {
               preferences
             </span>
           </p>
-          <Search
-            placeholder="Search for jobs"
-            enterButton
-            size="large"
-          />
+          <Search placeholder="Search for jobs" enterButton size="large" />
         </Col>
 
         {jobData?.map((job: IJobData) => (
@@ -90,17 +86,38 @@ const FindJob = () => {
               </div>
 
               <Card bordered={false}>
-                <h3 style={{ fontSize: "20px" }}>{job?.title}</h3>
+                <h3 style={{ fontSize: "20px", marginBottom: "10px" }}>
+                  {job?.title}
+                </h3>
                 <p>{job?.company}</p>
                 <br />
-                <p>Location: {job?.location}</p>
-                <br />
-                <Flex wrap="wrap" gap="small">
-                  <p>JobType: {job?.jobType},</p>
-                  <p> Joining Date: {job?.joiningDate},</p>
-                  <p>CTC: {job?.salary},</p>
-                  <p>Experience: {job?.experienceLevel}</p>
+                <div>
+                  <h4>Location</h4>
+                  <p>{job?.location}</p>
+                </div>
+
+                <Divider />
+
+                <Flex wrap="wrap" gap="20px">
+                  <div>
+                    <h4>Job Type</h4>
+                    <p>{job?.jobType}</p>
+                  </div>
+                  <div>
+                    <h4>Joining Date</h4>
+                    <p>{job?.joiningDate}</p>
+                  </div>
+                  <div>
+                    <h4>CTC</h4>
+                    <p>{job?.salary}</p>
+                  </div>
+                  <div>
+                    <h4>Experience</h4>
+                    <p>{job?.experienceLevel}</p>
+                  </div>
                 </Flex>
+
+                <Divider />
                 <br />
                 <Flex wrap="wrap" gap="small" justify="end" align="center">
                   <Link to={`/details/${job?._id}`}>View Details</Link>
