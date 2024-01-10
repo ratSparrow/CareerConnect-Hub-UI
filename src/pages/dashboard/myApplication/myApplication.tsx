@@ -65,19 +65,6 @@ const MyApplicationPage = () => {
     setSortOrder(order === "ascend" ? "asc" : "desc");
   };
 
-  const appData = [
-    {
-      company: "Seequenze Technologies",
-      profile: "Web Development",
-      jobDetail:
-        "https://internshala.com/internship/detail/web-development-work-from-home-job-internship-at-seequenze-technologies1703102109",
-      date: "30/12/2023",
-      applicationStatus: "Applied",
-      reviewApplication:
-        "https://internshala.com/application/view/180312582?referral=dashboard",
-    },
-  ];
-
   const columns = [
     {
       title: "COMPANY",
