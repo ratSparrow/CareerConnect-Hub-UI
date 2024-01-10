@@ -32,7 +32,7 @@ const JobDetails = () => {
             marginBottom: "20px",
           }}
         >
-          {data?.data?.title}
+          Applying For {data?.data?.title}
         </h2>
 
         <div style={{ textAlign: "center" }}>
