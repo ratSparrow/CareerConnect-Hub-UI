@@ -1,21 +1,15 @@
-/* eslint-disable @typescript-eslint/no-unused-vars */
 /* eslint-disable @typescript-eslint/no-explicit-any */
-
-"use client";
-
-import { RiseOutlined } from "@ant-design/icons";
-import { Button, Card, Col, Row, Flex } from "antd";
 import Search from "antd/es/input/Search";
-import { Link } from "react-router-dom";
-import { IJobData } from "../../types";
 import { useJobsQuery } from "../../redux/api/jobApi";
+import { Button, Card, Col, Flex, Row } from "antd";
+import { IJobData } from "../../types";
+import { RiseOutlined } from "@ant-design/icons";
+import { Link } from "react-router-dom";
 
-const FindJob = async () => {
-    const query: Record<string, any> = {};
-    const { data } = useJobsQuery({ ...query });
-    const jobData = data?.data?.data;
-    console.log(jobData);
-
+const FindJob = () => {
+  const query: Record<string, any> = {};
+  const { data } = useJobsQuery({ ...query });
+  const jobData = data?.data?.data;
   return (
     <div style={{ padding: "16px" }}>
       <div
