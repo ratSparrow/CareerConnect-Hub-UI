@@ -1,7 +1,6 @@
 import { Link, useParams } from "react-router-dom";
 import { useJobQuery } from "../../redux/api/jobApi";
 import { Button, Card, Flex } from "antd";
-import { RiseOutlined } from "@ant-design/icons";
 
 const JobDetails = () => {
   const { id } = useParams();
