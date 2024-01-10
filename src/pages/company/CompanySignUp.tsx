@@ -52,7 +52,7 @@ const AddCompany = () => {
       <div
         style={{
           marginTop: "10px",
-
+          marginBottom: "4rem",
           borderRadius: "10px",
           width: "100%",
           maxWidth: "1100px",
