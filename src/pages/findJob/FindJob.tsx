@@ -1,87 +1,143 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
 import Search from "antd/es/input/Search";
 import { useJobsQuery } from "../../redux/api/jobApi";
-import { Button, Card, Col, Flex, Row } from "antd";
+import { Button, Card, Col, Divider, Flex, Row } from "antd";
 import { IJobData } from "../../types";
 import { RiseOutlined } from "@ant-design/icons";
 import { Link } from "react-router-dom";
+import GlobalModal from "../../components/shared/GlobalModal";
+import AppliedModal from "../../components/ResumeModal/AppliedModal";
+import { useState } from "react";
 
 const FindJob = () => {
+  const [open, setOpen] = useState(false);
   const query: Record<string, any> = {};
   const { data } = useJobsQuery({ ...query });
   const jobData = data?.data?.data;
+
   return (
-    <div style={{ padding: "16px" }}>
+    <div style={{ minHeight: "100vh", margin: "30px 50px" }}>
       <div
         style={{
-          display: "flex",
-          flexDirection: "column",
-          justifyContent: "center",
-          alignItems: "center",
           textAlign: "center",
-          marginBottom: "16px",
+          marginBottom: "30px",
         }}
       >
-        <Search
-          placeholder="Search for jobs"
-          enterButton="Search"
-          size="large"
+        <h2
           style={{
-            maxWidth: "500px",
-            width: "100%",
+            color: "#123770",
+            marginBottom: "20px",
+            fontSize: "30px",
           }}
-        />
-      </div>
-      <div
-        style={{
-          textAlign: "center",
-          marginBottom: "16px",
-        }}
-      >
-        <h2>Job Feed</h2>
-        <h4>We are working on your personalized job feed.</h4>
-        <p>In the meantime, run a search to find your next job</p>
+        >
+          Explore Exciting Job Opportunities
+        </h2>
+        <h4>
+          Discover your next career move with personalized job recommendations.
+        </h4>
+        <p>In the meantime, run a search to find your perfect job</p>
       </div>
 
       <Row gutter={[16, 24]}>
+        <Col
+          xs={24}
+          sm={24}
+          md={8}
+          lg={8}
+          xl={8}
+          style={{
+            textAlign: "center",
+          }}
+        >
+          <h3>Search Criteria</h3>
+          <p
+            style={{
+              marginTop: "5px",
+              marginBottom: "15px",
+            }}
+          >
+            As per my{" "}
+            <span
+              style={{
+                color: "#4096FF",
+                fontWeight: "bold",
+              }}
+            >
+              preferences
+            </span>
+          </p>
+          <Search placeholder="Search for jobs" enterButton size="large" />
+        </Col>
+
         {jobData?.map((job: IJobData) => (
-          <Col xs={24} sm={12} md={8} lg={8} key={job?._id}>
+          <Col xs={24} sm={24} md={16} lg={16} xl={16} key={job?._id}>
             <div
               style={{
                 height: "100%",
-                boxShadow: "0 4px 8px rgba(0, 0, 0, 0.1)",
+                boxShadow: "0px 0px 10px 0px rgba(0,0,0,0.1)",
+                borderRadius: "5px",
               }}
             >
-              <Flex
+              <div
                 style={{
-                  padding: "10px",
+                  padding: "0 20px",
+                  paddingTop: "20px",
                   color: "blue",
+                  display: "flex",
+                  gap: "5px",
                 }}
-                wrap="wrap"
-                gap="small"
               >
                 <RiseOutlined /> <p>Active Hiring</p>
-              </Flex>
-              <Card title={job?.title} bordered={false}>
-                <h4>{job?.company}</h4>
+              </div>
+
+              <Card bordered={false}>
+                <h3 style={{ fontSize: "20px", marginBottom: "10px" }}>
+                  {job?.title}
+                </h3>
+                <p>{job?.company}</p>
                 <br />
-                <Flex wrap="wrap" gap="small">
-                  <p>Location: {job?.location},</p>
-                  <p>JobType: {job?.jobType},</p>
-                  <p> Joining Date: {job?.joiningDate},</p>
-                  <p>CTC: {job?.salary},</p>
-                  <p>Experience: {job?.experienceLevel}</p>
+                <div>
+                  <h4>Location</h4>
+                  <p>{job?.location}</p>
+                </div>
+
+                <Divider />
+
+                <Flex wrap="wrap" gap="20px">
+                  <div>
+                    <h4>Job Type</h4>
+                    <p>{job?.jobType}</p>
+                  </div>
+                  <div>
+                    <h4>Joining Date</h4>
+                    <p>{job?.joiningDate}</p>
+                  </div>
+                  <div>
+                    <h4>CTC</h4>
+                    <p>{job?.salary}</p>
+                  </div>
+                  <div>
+                    <h4>Experience</h4>
+                    <p>{job?.experienceLevel}</p>
+                  </div>
                 </Flex>
+
+                <Divider />
                 <br />
                 <Flex wrap="wrap" gap="small" justify="end" align="center">
-                  <Link to={`/jobDetails/${job?._id}`}>View Details</Link>
-                  <Button type="primary">Apply Now</Button>
+                  <Link to={`/details/${job?._id}`}>View Details</Link>
+                  <Button type="primary" onClick={() => setOpen(true)}>
+                    Apply Now
+                  </Button>
                 </Flex>
               </Card>
             </div>
           </Col>
         ))}
       </Row>
+      <GlobalModal open={open} setOpen={setOpen} width={650} title={""}>
+        <AppliedModal />
+      </GlobalModal>
     </div>
   );
 };

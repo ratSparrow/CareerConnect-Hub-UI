@@ -1,16 +1,17 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
 
-"use client";
-
 import { DeleteOutlined, EditOutlined, PlusOutlined } from "@ant-design/icons";
-import { useState } from "react";
-import { useDeletePortfolioMutation, usePortfoliosQuery } from "../../redux/api/portfolioApi";
-import { getUserInfo } from "../../services/auth.service";
 import { Button, Col, Flex, Row, message } from "antd";
+import { useState } from "react";
 import { Link } from "react-router-dom";
-import GlobalModal from "../shared/GlobalModal";
+import {
+  useDeletePortfolioMutation,
+  usePortfoliosQuery,
+} from "../../redux/api/portfolioApi";
+import { getUserInfo } from "../../services/auth.service";
 import PortfolioModal from "../ResumeModal/PortfolioModal";
 import UpdatePortfolioModal from "../ResumeModal/UpdatePortfolioModal";
+import GlobalModal from "../shared/GlobalModal";
 
 const Portfolio = () => {
   const [open, setOpen] = useState(false);
@@ -18,7 +19,7 @@ const Portfolio = () => {
   const [selectedId, setSelectedId] = useState<string | null>(null);
 
   const query: Record<string, any> = {};
-  const { data} = usePortfoliosQuery({ ...query });
+  const { data } = usePortfoliosQuery({ ...query });
   const portfolioData = data?.data;
   const [deletePortfolio] = useDeletePortfolioMutation();
 

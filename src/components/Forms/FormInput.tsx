@@ -1,6 +1,4 @@
 /* eslint-disable @typescript-eslint/no-unused-vars */
-"use client";
-
 import { Input } from "antd";
 import { Controller, useFormContext } from "react-hook-form";
 interface IInput {

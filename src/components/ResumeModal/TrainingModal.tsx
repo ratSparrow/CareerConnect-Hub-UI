@@ -1,14 +1,11 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
 
-"use client";
-
 import { Button, message } from "antd";
 import { useAddTrainingMutation } from "../../redux/api/trainingApi";
 import { getUserInfo } from "../../services/auth.service";
 import Form from "../Forms/Form";
 import FormInput from "../Forms/FormInput";
 import FormTextArea from "../Forms/FormTextArea";
-
 
 const TrainingModal = () => {
   const [addTraining] = useAddTrainingMutation();
@@ -69,12 +66,16 @@ const TrainingModal = () => {
         <div
           style={{
             width: "100%",
-            height: "100%", minHeight: "10rem", resize: "none"
+            height: "100%",
+            minHeight: "10rem",
+            resize: "none",
           }}
         >
-          <FormTextArea name="description" label="Description (Optional)"/>
+          <FormTextArea name="description" label="Description (Optional)" />
         </div>
-        <div style={{ display: "flex", justifyContent: "end", marginTop: "10px"  }}>
+        <div
+          style={{ display: "flex", justifyContent: "end", marginTop: "10px" }}
+        >
           <Button type="primary" htmlType="submit">
             Save
           </Button>

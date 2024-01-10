@@ -1,7 +1,5 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
 
-"use client";
-
 import type { SelectProps } from "antd";
 import { Select, message } from "antd";
 import { useAddSkillMutation, useSkillsQuery } from "../../redux/api/skillApi";
@@ -26,7 +24,7 @@ const SkillModal = () => {
       userEmail: email,
     };
     console.log(options);
-    
+
     await addSkill(options);
     message.success("Skills added successfully!");
   };

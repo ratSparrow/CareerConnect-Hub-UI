@@ -1,13 +1,17 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
 
-"use client";
-
 import { Button, message } from "antd";
-import { useEducationQuery, useUpdateEducationMutation } from "../../redux/api/educationApi";
+import {
+  useEducationQuery,
+  useUpdateEducationMutation,
+} from "../../redux/api/educationApi";
+
 import Form from "../Forms/Form";
 import FormInput from "../Forms/FormInput";
 import FormSelectField from "../Forms/FormSelectField";
+
 import { educationYearOptions, performanceScale } from "../constant/global";
+
 
 const UpdateEducationModal = ({ id }: any) => {
   const { data } = useEducationQuery(id);

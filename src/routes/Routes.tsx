@@ -9,11 +9,11 @@ import RegisterPage from "../pages/common/SignUp";
 import Homepage from "../pages/home/Homepage";
 import CompanyChart from "../pages/dashboard/company/CompanyCharts";
 import UserProfile from "../pages/user/Profile";
-
 import ResumePage from "../pages/resume/Resume";
-import MainLayout from "../components/layouts/MainLayout";
-import DashboardLayout from "../components/layouts/DashboardLayout";
 import FindJob from "../pages/findJob/FindJob";
+import JobDetails from "../pages/findJob/JobDetails";
+import MainLayout from "../components/Layouts/MainLayout";
+import DashboardLayout from "../components/Layouts/DashboardLayout";
 
 const routes = createBrowserRouter([
   {
@@ -47,6 +47,10 @@ const routes = createBrowserRouter([
       {
         path: "/find-job",
         element: <FindJob />,
+      },
+      {
+        path: "/details/:id",
+        element: <JobDetails/>,
       }
     ],
   },

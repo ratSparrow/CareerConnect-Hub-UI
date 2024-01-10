@@ -1,7 +1,7 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
 
-"use client";
-
+import { DeleteOutlined, PlusOutlined } from "@ant-design/icons";
+import { Button, Col, Flex, Row, message } from "antd";
 import {
   JSXElementConstructor,
   Key,
@@ -10,13 +10,13 @@ import {
   ReactPortal,
   useState,
 } from "react";
-import { useDeleteSkillMutation, useSkillsQuery } from "../../redux/api/skillApi";
+import {
+  useDeleteSkillMutation,
+  useSkillsQuery,
+} from "../../redux/api/skillApi";
 import { getUserInfo } from "../../services/auth.service";
-import { Button, Col, Flex, Row, message } from "antd";
-import { DeleteOutlined, PlusOutlined } from "@ant-design/icons";
-import GlobalModal from "../shared/GlobalModal";
 import SkillModal from "../ResumeModal/SkillModal";
-
+import GlobalModal from "../shared/GlobalModal";
 
 const Skills = () => {
   const [open, setOpen] = useState(false);
@@ -57,12 +57,7 @@ const Skills = () => {
         <Col xs={24} sm={16}>
           <Col>
             {filteredByEmail?.map((skill: any) => (
-              <Flex
-                wrap="wrap"
-                gap="middle"
-                align="start"
-                key={skill._id}
-              >
+              <Flex wrap="wrap" gap="middle" align="start" key={skill._id}>
                 {skill?.skills?.map(
                   (
                     item:
@@ -110,7 +105,6 @@ const Skills = () => {
           <GlobalModal open={open} setOpen={setOpen} width={650} title={""}>
             <SkillModal />
           </GlobalModal>
-          
         </Col>
       </Row>
     </>

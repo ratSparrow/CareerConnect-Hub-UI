@@ -1,7 +1,5 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
 
-"use client";
-
 import { Button, message } from "antd";
 import { useAddWorkExperienceMutation } from "../../redux/api/workExperienceApi";
 import { getUserInfo } from "../../services/auth.service";

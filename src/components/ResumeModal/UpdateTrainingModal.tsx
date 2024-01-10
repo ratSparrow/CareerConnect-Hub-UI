@@ -1,9 +1,10 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
 
-"use client";
-
 import { Button, message } from "antd";
-import { useTrainingQuery, useUpdateTrainingMutation } from "../../redux/api/trainingApi";
+import {
+  useTrainingQuery,
+  useUpdateTrainingMutation,
+} from "../../redux/api/trainingApi";
 import Form from "../Forms/Form";
 import FormInput from "../Forms/FormInput";
 import FormTextArea from "../Forms/FormTextArea";
