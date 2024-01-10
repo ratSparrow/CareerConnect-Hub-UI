@@ -1,0 +1,12 @@
+.text {
+  color: #707083;
+  font-size: 1rem;
+  line-height: 1.6rem;
+  text-align: justify;
+}
+.office {
+  margin-top: 3rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
