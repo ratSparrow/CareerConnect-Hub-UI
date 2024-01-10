@@ -7,6 +7,7 @@ import Blog from "../pages/Blog/Blog";
 import Contact from "../pages/Contact/Contact";
 import PrivacyPage from "../pages/Privacy/Privacy";
 import TermsPage from "../pages/Terms/Terms";
+import CareerServices from "../pages/careerServices/careerServices";
 import LoginPage from "../pages/common/Login";
 import RegisterPage from "../pages/common/SignUp";
 import ViewJob from "../pages/dashboard/job/ViewJob";
@@ -20,6 +21,10 @@ const routes = createBrowserRouter([
       {
         path: "/",
         element: <Homepage />,
+      },
+      {
+        path: "/career-services",
+        element: <CareerServices />,
       },
       {
         path: "/blog",
