@@ -15,6 +15,9 @@ import UserProfile from "../pages/user/Profile";
 import AppliedJobs from "../pages/dashboard/job/AppliedJobs";
 import MainLayout from "../components/Layouts/MainLayout";
 import DashboardLayout from "../components/Layouts/DashboardLayout";
+import CreateBlog from "../pages/dashboard/blog/CreateBlog";
+import ViewBlogs from "../pages/dashboard/blog/ViewBlogs";
+import EditBlog from "../pages/dashboard/blog/EditBlog";
 
 const routes = createBrowserRouter([
   {
@@ -69,8 +72,16 @@ const routes = createBrowserRouter([
         element: <AppliedJobs />,
       },
       {
-        path: "/dashboard/company",
-        element: "company",
+        path: "/dashboard/blog/create",
+        element: <CreateBlog />,
+      },
+      {
+        path: "/dashboard/blog",
+        element: <ViewBlogs />,
+      },
+      {
+        path: "/dashboard/blog/edit/:id",
+        element: <EditBlog />,
       },
     ],
   },

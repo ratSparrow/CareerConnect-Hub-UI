@@ -22,6 +22,24 @@ export const jobApi = baseApi.injectEndpoints({
       }),
       providesTags: [tagTypes.jobs],
     }),
+    // company applied jobs
+    companyAppliedJobs: build.query({
+      query: (email) => ({
+        url: `/company/${email}`,
+        method: "GET",
+        params: email,
+      }),
+      providesTags: [tagTypes.jobs],
+    }),
+    // applicant applied jobs
+    applicatAppliedJobs: build.query({
+      query: (email) => ({
+        url: `/applicant/${email}`,
+        method: "GET",
+        params: email,
+      }),
+      providesTags: [tagTypes.jobs],
+    }),
     //Post
     addJob: build.mutation({
       query: (data) => ({
@@ -79,4 +97,6 @@ export const {
   useUpdateJobMutation,
   useDeleteJobMutation,
   useJobSearchQuery,
+  useCompanyAppliedJobsQuery,
+  useApplicatAppliedJobsQuery,
 } = jobApi;

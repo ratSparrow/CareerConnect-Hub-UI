@@ -1,30 +1,30 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
 
-import { EyeOutlined } from "@ant-design/icons";
-import { useEffect, useState } from "react";
-import { Link } from "react-router-dom";
+import { DeleteOutlined, EditOutlined } from "@ant-design/icons";
+import { Button, message } from "antd";
+import { useState } from "react";
+import { useBlogsQuery, useDeleteBlogMutation } from "../../../redux/api/blogApi";
+import { Link, useNavigate } from "react-router-dom";
 import DataTable from "../../../components/ui/dashboard/common/DataTable";
-import { getUserInfo } from "../../../services/auth.service";
-import { useCompanyAppliedJobsQuery, useJobsQuery } from "../../../redux/api/jobApi";
 
-const AppliedJobs = () => {
-  const { email } = getUserInfo() as any;
+const ViewBlogs = () => {
   const query: Record<string, any> = {};
   const [page, setPage] = useState<number>(1);
   const [size, setSize] = useState<number>(10);
   const [sortBy, setSortBy] = useState<string>("");
   const [sortOrder, setSortOrder] = useState<string>("");
-  const [appliedJob, setAppliedJob] = useState([]);
+
+  const navigate = useNavigate();
 
   query["limit"] = size;
   query["page"] = page;
   query["sortBy"] = sortBy;
   query["sortOrder"] = sortOrder;
 
-  const {data} = useCompanyAppliedJobsQuery(email);
+  const { data, isLoading } = useBlogsQuery({ ...query });
+  const blogData = data?.data;
+  const [deleteBlog] = useDeleteBlogMutation();
 
-  console.log(data);
-  
   const onPaginationChange = (page: number, pageSize: number) => {
     console.log("Page:", page, "PageSize:", pageSize);
     setPage(page);
@@ -37,57 +37,59 @@ const AppliedJobs = () => {
     setSortOrder(order === "ascend" ? "asc" : "desc");
   };
 
-  useEffect(() => {
-    const fetchData = async () => {
-      try {
-        const res = await fetch(
-          `https://career-connect-hub-api.vercel.app/api/v1/applied-job/company/${email}`,
-          {
-            cache: "no-store",
-          }
-        );
-        const data = await res.json();
-        setAppliedJob(data.data);
-        // console.log(data.data);
-      } catch (error) {
-        console.error("Error fetching job details:", error);
+  const deleteHandler = async (id: string) => {
+    message.loading("Deleting.....");
+    try {
+      const res = await deleteBlog(id);
+      if (res) {
+        message.success("Blog Deleted successfully");
       }
-    };
+    } catch (err: any) {
+      message.error(err.message);
+    }
+  };
 
-    fetchData();
-  }, [email]);
+  const handleEdit = (id: string) => {
+    navigate(`/dashboard/blog/edit/${id}`);
+  }
 
   const columns = [
     {
       title: "Title",
-      dataIndex: "jobId",
+      dataIndex: "title",
     },
     {
-      title: "User Id ",
-      dataIndex: "id",
+      title: "Author",
+      dataIndex: "author",
     },
     {
-      title: "Job Seeker Email",
-      dataIndex: "jobSeekerEmail",
+      title: "PublishDate",
+      dataIndex: "publishDate",
     },
     {
-      title: "Company Email",
-      dataIndex: "companyEmail",
-    },
-    {
-      title: "View Resume",
+      title: "Action",
       dataIndex: "id",
       render: function (data: any) {
         return (
           <>
-            <Link to={`/${data?.id}`}>
-              <EyeOutlined
+            <Link to={`/dashboard/blog/edit/${data}`}>
+              <Button
                 style={{
-                  fontSize: "20px",
                   margin: "0px 5px",
                 }}
-              />
+                onClick={() => handleEdit(data)}
+                type="primary"
+              >
+                <EditOutlined />
+              </Button>
             </Link>
+            <Button
+              onClick={() => deleteHandler(data)}
+              type="primary"
+              danger
+            >
+              <DeleteOutlined />
+            </Button>
           </>
         );
       },
@@ -98,16 +100,17 @@ const AppliedJobs = () => {
     <div>
       <h2
         style={{
-          padding: "15px",
           color: "#1F2B6C",
           textAlign: "center",
+          margin: "30px 0",
         }}
       >
-        Applied Job Information
+        Blog Details
       </h2>
       <DataTable
-        dataSource={appliedJob}
+        loading={isLoading}
         columns={columns}
+        dataSource={blogData}
         showSizeChanger={true}
         showPagination={true}
         pageSize={size}
@@ -118,4 +121,4 @@ const AppliedJobs = () => {
   );
 };
 
-export default AppliedJobs;
+export default ViewBlogs;
