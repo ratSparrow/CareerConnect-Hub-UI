@@ -1,11 +1,15 @@
-import { Link, useParams } from "react-router-dom";
+import {  useParams } from "react-router-dom";
 import { useJobQuery } from "../../redux/api/jobApi";
 import { Button, Card, Divider, Flex } from "antd";
 import { RiseOutlined } from "@ant-design/icons";
+import { useState } from "react";
+import AppliedModal from "../../components/ResumeModal/AppliedModal";
+import GlobalModal from "../../components/shared/GlobalModal";
 
 const JobDetails = () => {
   const { id } = useParams();
   const { data } = useJobQuery(id);
+  const [open, setOpen] = useState(false);
 
   return (
     <>
@@ -134,13 +138,18 @@ const JobDetails = () => {
               padding: "20px 0",
             }}
           >
-            <Link to="/login">
-              <Button type="primary" style={{ width: "200px" }}>
-                Apply Now
-              </Button>
-            </Link>
+            <Button
+              type="primary"
+              onClick={() => setOpen(true)}
+              style={{ width: "200px" }}
+            >
+              Apply Now
+            </Button>
           </Flex>
         </Card>
+        <GlobalModal open={open} setOpen={setOpen} width={650} title={""}>
+          <AppliedModal />
+        </GlobalModal>
       </div>
     </>
   );

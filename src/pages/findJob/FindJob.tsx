@@ -5,11 +5,16 @@ import { Button, Card, Col, Divider, Flex, Row } from "antd";
 import { IJobData } from "../../types";
 import { RiseOutlined } from "@ant-design/icons";
 import { Link } from "react-router-dom";
+import GlobalModal from "../../components/shared/GlobalModal";
+import AppliedModal from "../../components/ResumeModal/AppliedModal";
+import { useState } from "react";
 
 const FindJob = () => {
+  const [open, setOpen] = useState(false);
   const query: Record<string, any> = {};
   const { data } = useJobsQuery({ ...query });
   const jobData = data?.data?.data;
+
   return (
     <div style={{ minHeight: "100vh", margin: "30px 50px" }}>
       <div
@@ -121,13 +126,18 @@ const FindJob = () => {
                 <br />
                 <Flex wrap="wrap" gap="small" justify="end" align="center">
                   <Link to={`/details/${job?._id}`}>View Details</Link>
-                  <Button type="primary">Apply Now</Button>
+                  <Button type="primary" onClick={() => setOpen(true)}>
+                    Apply Now
+                  </Button>
                 </Flex>
               </Card>
             </div>
           </Col>
         ))}
       </Row>
+      <GlobalModal open={open} setOpen={setOpen} width={650} title={""}>
+        <AppliedModal />
+      </GlobalModal>
     </div>
   );
 };
