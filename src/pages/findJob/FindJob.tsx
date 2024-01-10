@@ -85,17 +85,19 @@ const FindJob = () => {
                   padding: "20px",
                   color: "blue",
                   display: "flex",
-                  gap: "5px"
+                  gap: "5px",
                 }}
               >
                 <RiseOutlined /> <p>Active Hiring</p>
               </div>
 
-              <Card title={job?.title} bordered={false}>
-                <h4>{job?.company}</h4>
+              <Card bordered={false}>
+                <h3 style={{ fontSize: "20px" }}>{job?.title}</h3>
+                <p>{job?.company}</p>
+                <br />
+                <p>Location: {job?.location},</p>
                 <br />
                 <Flex wrap="wrap" gap="small">
-                  <p>Location: {job?.location},</p>
                   <p>JobType: {job?.jobType},</p>
                   <p> Joining Date: {job?.joiningDate},</p>
                   <p>CTC: {job?.salary},</p>
