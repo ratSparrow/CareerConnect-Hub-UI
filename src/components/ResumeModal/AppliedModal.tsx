@@ -5,14 +5,17 @@ import Form from "../Forms/Form";
 import FormTextArea from "../Forms/FormTextArea";
 import { useAddAppliedJobMutation } from "../../redux/api/appliedJobApi";
 import FormInput from "../Forms/FormInput";
+import { Link } from "react-router-dom";
 
-const AppliedModal = () => {
+const AppliedModal = ({ appliedJobInfo }: any) => {
   const [addAppliedJob] = useAddAppliedJobMutation();
+  console.log(appliedJobInfo);
 
   const onSubmit = async (data: any) => {
     message.loading("Adding...");
+    console.log(data);
     try {
-      await addAppliedJob(data);
+      await addAppliedJob(appliedJobInfo);
       message.success("Applied successfully");
     } catch (err: any) {
       console.error(err.message);
@@ -21,23 +24,40 @@ const AppliedModal = () => {
   };
   return (
     <div>
-      <p
+      <div
         style={{
-          fontSize: "1.1rem",
-          marginTop: "1rem",
-          marginBottom: ".5rem",
-          textAlign: "center",
-          fontWeight: "bold",
+          display: "flex",
+          justifyContent: "space-between",
+          alignItems: "center",
         }}
       >
-        Apply
-      </p>
+        <h4
+          style={{
+            color: "",
+            fontWeight: 400,
+            marginTop: "2rem",
+            marginBottom: "1rem",
+          }}
+        >
+          Your resume will be forwarded from here.
+        </h4>
+
+        <Button
+          style={{ marginTop: "2rem", marginBottom: "1rem" }}
+          type="primary"
+          size="small"
+          htmlType="submit"
+        >
+          <Link to="/edit-resume"> Edit Resume</Link>
+        </Button>
+      </div>
+
       <Form submitHandler={onSubmit}>
         <div style={{ width: "100%", marginTop: ".5rem" }}>
           <FormInput name="name" type="tet" label="Your Name" />
         </div>
         <div style={{ width: "100%", marginTop: ".5rem" }}>
-          <FormInput name="email" type="email" label="Your Email"/>
+          <FormInput name="email" type="email" label="Your Email" />
         </div>
         <div style={{ width: "100%" }}>
           <FormTextArea name="coverLetter" label="Cover Letter" />
@@ -49,9 +69,11 @@ const AppliedModal = () => {
             marginTop: "10px",
           }}
         >
-          <Button type="primary" htmlType="submit">
-            Submit Application
-          </Button>
+          <Link to="/my-application">
+            <Button type="primary" htmlType="submit">
+              Submit Application
+            </Button>
+          </Link>
         </div>
       </Form>
     </div>

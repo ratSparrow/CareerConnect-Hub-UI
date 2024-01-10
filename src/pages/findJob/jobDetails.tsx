@@ -1,19 +1,24 @@
-import {  useParams } from "react-router-dom";
+/* eslint-disable @typescript-eslint/no-explicit-any */
+import { useParams } from "react-router-dom";
 import { useJobQuery } from "../../redux/api/jobApi";
 import { Button, Card, Divider, Flex } from "antd";
 import { RiseOutlined } from "@ant-design/icons";
 import { useState } from "react";
 import AppliedModal from "../../components/ResumeModal/AppliedModal";
 import GlobalModal from "../../components/shared/GlobalModal";
-
-
+import { getUserInfo } from "../../services/auth.service";
 
 const JobDetails = () => {
   const { id } = useParams();
+  const { email } = getUserInfo() as any;
   const { data } = useJobQuery(id);
   const [open, setOpen] = useState(false);
 
-
+  const appliedJobInfo = {
+    jobId: id,
+    companyEmail: data?.data.contactEmail,
+    jobSeekerEmail: email,
+  };
   return (
     <>
       <div
@@ -151,7 +156,7 @@ const JobDetails = () => {
           </Flex>
         </Card>
         <GlobalModal open={open} setOpen={setOpen} width={650} title={""}>
-          <AppliedModal />
+          <AppliedModal appliedJobInfo={appliedJobInfo} />
         </GlobalModal>
       </div>
     </>

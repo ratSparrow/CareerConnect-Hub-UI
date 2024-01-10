@@ -9,6 +9,9 @@ import { useCompanyAppliedJobsQuery } from "../../../redux/api/jobApi";
 
 const AppliedJobs = () => {
   const { email } = getUserInfo() as any;
+
+  console.log(email);
+
   const query: Record<string, any> = {};
   const [page, setPage] = useState<number>(1);
   const [size, setSize] = useState<number>(10);

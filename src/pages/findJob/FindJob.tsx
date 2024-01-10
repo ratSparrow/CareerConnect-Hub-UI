@@ -1,16 +1,12 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
 import Search from "antd/es/input/Search";
 import { useJobsQuery } from "../../redux/api/jobApi";
-import { Button, Card, Col, Divider, Flex, Row } from "antd";
+import { Card, Col, Divider, Flex, Row } from "antd";
 import { IJobData } from "../../types";
 import { RiseOutlined } from "@ant-design/icons";
 import { Link } from "react-router-dom";
-import GlobalModal from "../../components/shared/GlobalModal";
-import AppliedModal from "../../components/ResumeModal/AppliedModal";
-import { useState } from "react";
 
 const FindJob = () => {
-  const [open, setOpen] = useState(false);
   const query: Record<string, any> = {};
   const { data } = useJobsQuery({ ...query });
   const jobData = data?.data?.data;
@@ -126,18 +122,12 @@ const FindJob = () => {
                 <br />
                 <Flex wrap="wrap" gap="small" justify="end" align="center">
                   <Link to={`/details/${job?._id}`}>View Details</Link>
-                  <Button type="primary" onClick={() => setOpen(true)}>
-                    Apply Now
-                  </Button>
                 </Flex>
               </Card>
             </div>
           </Col>
         ))}
       </Row>
-      <GlobalModal open={open} setOpen={setOpen} width={650} title={""}>
-        <AppliedModal />
-      </GlobalModal>
     </div>
   );
 };

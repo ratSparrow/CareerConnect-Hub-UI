@@ -65,7 +65,7 @@ const routes = createBrowserRouter([
         element: <UserProfile />,
       },
       {
-        path: "/resume",
+        path: "/edit-resume",
         element: <ResumePage />,
       },
       {
