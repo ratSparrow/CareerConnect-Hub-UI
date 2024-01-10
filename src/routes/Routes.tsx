@@ -119,6 +119,10 @@ const routes = createBrowserRouter([
         path: "/dashboard/blog/edit/:id",
         element: <EditBlog />,
       },
+      {
+        path: "/dashboard/company",
+        element: <EditBlog />,
+      },
     ],
   },
 ]);

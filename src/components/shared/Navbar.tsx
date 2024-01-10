@@ -19,13 +19,14 @@ import {
 } from "antd";
 
 import { useEffect, useState } from "react";
-import { Link, Navigate, useLocation } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { getUserInfo, removeUserInfo } from "../../services/auth.service";
 
 const NavBar = () => {
   const [openMenu, setOpenMenu] = useState(false);
   const [role, setRole] = useState(null);
-  const { pathname } = useLocation();
+
+  const navigate = useNavigate();
 
   useEffect(() => {
     // Fetch user role on mount
@@ -35,28 +36,10 @@ const NavBar = () => {
 
   const handleLogout = (accessToken: string) => {
     removeUserInfo(accessToken);
-    return <Navigate to="/login" state={{ path: pathname }} />;
+    return navigate("/login");
   };
 
-  // console.log(role);
-
   const items: MenuProps["items"] = [
-    // {
-    //   key: "0",
-    //   label: (
-    //     <div
-    //       style={{
-    //         // fontSize: "1.2rem",
-    //         width: "100%",
-    //         display: "flex",
-    //         justifyContent: "center",
-    //         alignItems: "center",
-    //       }}
-    //     >
-
-    //     </div>
-    //   ),
-    // },
     {
       key: "1",
       label: (

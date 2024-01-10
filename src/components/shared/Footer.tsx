@@ -183,7 +183,7 @@ const Footer = () => {
             }}
           >
             <Link
-              to="/job-list"
+              to="/find-job"
               style={{
                 color: "white",
               }}
@@ -260,7 +260,7 @@ const Footer = () => {
           paddingTop: "20px",
         }}
       >
-        @ 2023 Career Connect Hub, Made with by Next.js
+        @ 2023 Career Connect Hub
       </p>
     </div>
   );

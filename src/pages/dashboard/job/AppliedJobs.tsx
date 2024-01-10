@@ -77,10 +77,10 @@ const AppliedJobs = () => {
     {
       title: "View Resume",
       dataIndex: "id",
-      render: function (data: any) {
+      render: function () {
         return (
           <>
-            <Link to={`/${data?.id}`}>
+            <Link to={`/user-profile`}>
               <EyeOutlined
                 style={{
                   fontSize: "20px",

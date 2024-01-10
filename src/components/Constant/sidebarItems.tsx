@@ -2,7 +2,7 @@
 import { AppstoreOutlined } from "@ant-design/icons";
 import type { MenuProps } from "antd";
 import { Link } from "react-router-dom";
-// import { USER_ROLE } from "./role";
+import { USER_ROLE } from "./role";
 
 export const sidebarItems = (role: string) => {
   const adminSidebarItems: MenuProps["items"] = [
@@ -53,7 +53,6 @@ export const sidebarItems = (role: string) => {
     // },
   ];
 
-
   const recruiterSidebarItems: MenuProps["items"] = [
     {
       label: "Manage Job",
@@ -76,10 +75,8 @@ export const sidebarItems = (role: string) => {
     },
   ];
 
-
-
-  // if (role === USER_ROLE.ADMIN) return adminSidebarItems;
-  // else if (role === USER_ROLE.RECRUITER) return recruiterSidebarItems;
+  if (role === USER_ROLE.ADMIN) return adminSidebarItems;
+  else if (role === USER_ROLE.RECRUITER) return recruiterSidebarItems;
 
   return recruiterSidebarItems;
 };
