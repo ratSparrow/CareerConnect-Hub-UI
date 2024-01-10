@@ -95,7 +95,7 @@ const FindJob = () => {
                 <h3 style={{ fontSize: "20px" }}>{job?.title}</h3>
                 <p>{job?.company}</p>
                 <br />
-                <p>Location: {job?.location},</p>
+                <p>Location: {job?.location}</p>
                 <br />
                 <Flex wrap="wrap" gap="small">
                   <p>JobType: {job?.jobType},</p>
