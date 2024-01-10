@@ -11,8 +11,6 @@ import LoginPage from "../pages/common/Login";
 import RegisterPage from "../pages/common/SignUp";
 import Homepage from "../pages/home/Homepage";
 import CompanyChart from "../pages/dashboard/company/CompanyCharts";
-import MainLayout from "../components/layouts/MainLayout";
-import DashboardLayout from "../components/layouts/DashboardLayout";
 import UserProfile from "../pages/user/Profile";
 import ResumePage from "../pages/resume/Resume";
 import FindJob from "../pages/findJob/FindJob";
@@ -22,6 +20,10 @@ import AppliedJobs from "../pages/dashboard/job/AppliedJobs";
 import CreateBlog from "../pages/dashboard/blog/CreateBlog";
 import ViewBlogs from "../pages/dashboard/blog/ViewBlogs";
 import EditBlog from "../pages/dashboard/blog/EditBlog";
+import ViewCompany from "../pages/dashboard/company/ViewCompany";
+import MainLayout from "../components/Layouts/MainLayout";
+import DashboardLayout from "../components/Layouts/DashboardLayout";
+import UpdateCompany from "../pages/dashboard/company/UpdateCompany";
 
 const routes = createBrowserRouter([
   {
@@ -118,6 +120,14 @@ const routes = createBrowserRouter([
       {
         path: "/dashboard/blog/edit/:id",
         element: <EditBlog />,
+      },
+      {
+        path: "/dashboard/company",
+        element: <ViewCompany />,
+      },
+      {
+        path: "/dashboard/company/edit/:id",
+        element: <UpdateCompany />,
       },
     ],
   },

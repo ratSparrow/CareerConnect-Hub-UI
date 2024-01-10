@@ -1,8 +1,9 @@
-/* eslint-disable @typescript-eslint/no-unused-vars */
 import { AppstoreOutlined } from "@ant-design/icons";
 import type { MenuProps } from "antd";
 import { Link } from "react-router-dom";
-// import { USER_ROLE } from "./role";
+import { USER_ROLE } from "./role";
+
+
 
 export const sidebarItems = (role: string) => {
   const adminSidebarItems: MenuProps["items"] = [
@@ -11,10 +12,6 @@ export const sidebarItems = (role: string) => {
       key: "company",
       icon: <AppstoreOutlined />,
       children: [
-        {
-          label: <Link to="/dashboard/company-chart">Company Chart</Link>,
-          key: `/${role}/dashboard/company-chart`,
-        },
         {
           label: <Link to="/dashboard/company">View Company</Link>,
           key: `/${role}/dashboard/company`,
@@ -36,24 +33,22 @@ export const sidebarItems = (role: string) => {
         },
       ],
     },
-    // {
-    //   label: "Manage Events",
-    //   key: "events",
-    //   icon: <AppstoreOutlined />,
-    //   children: [
-    //     {
-    //       label: <Link to="/dashboard/events">View Events</Link>,
-    //       key: `/${role}/dashboard/events`,
-    //     },
-    //     {
-    //       label: <Link to="/dashboard/events/create">Create an event</Link>,
-    //       key: `/${role}/dashboard/events/create`,
-    //     },
-    //   ],
-    // },
+    {
+      label: "Manage Events",
+      key: "events",
+      icon: <AppstoreOutlined />,
+      children: [
+        {
+          label: <Link to="/dashboard/events">View Events</Link>,
+          key: `/${role}/dashboard/events`,
+        },
+        {
+          label: <Link to="/dashboard/events/create">Create an event</Link>,
+          key: `/${role}/dashboard/events/create`,
+        },
+      ],
+    },
   ];
-
-
   const recruiterSidebarItems: MenuProps["items"] = [
     {
       label: "Manage Job",
@@ -61,7 +56,7 @@ export const sidebarItems = (role: string) => {
       icon: <AppstoreOutlined />,
       children: [
         {
-          label: <Link to="/dashboard/job">View Jobs</Link>,
+          label: <Link to="/dashboard/job">View Job</Link>,
           key: `/${role}/dashboard/job`,
         },
         {
@@ -69,17 +64,14 @@ export const sidebarItems = (role: string) => {
           key: `/${role}/dashboard/job/create`,
         },
         {
-          label: <Link to="/dashboard/job/applied-jobs">Applied Jobs</Link>,
-          key: `/${role}/dashboard/job/applied-jobs`,
+          label: <Link to="/dashboard/job/appliedJob">Applied Job</Link>,
+          key: `/${role}/dashboard/job/appliedJob`,
         },
       ],
     },
+
   ];
 
-
-
-  // if (role === USER_ROLE.ADMIN) return adminSidebarItems;
-  // else if (role === USER_ROLE.RECRUITER) return recruiterSidebarItems;
-
-  return recruiterSidebarItems;
+  if (role === USER_ROLE.ADMIN) return adminSidebarItems;
+  else if (role === USER_ROLE.RECRUITER) return recruiterSidebarItems;
 };

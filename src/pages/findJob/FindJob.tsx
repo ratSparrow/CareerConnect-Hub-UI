@@ -86,7 +86,7 @@ const FindJob = () => {
             placeholder="Search for jobs"
             enterButton
             size="large"
-            onClick={handleSearch}
+            onSearch={handleSearch}
           />
         </Col>
 
