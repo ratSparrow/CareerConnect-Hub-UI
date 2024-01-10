@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/ban-ts-comment */
 /* eslint-disable @typescript-eslint/no-explicit-any */
 import { Button, Col, Row, message } from "antd";
 import { useState } from "react";
@@ -30,17 +31,22 @@ const LoginPage = () => {
       const res = await userLogin(loginData);
       console.log(res);
 
+      //@ts-ignore
       if (res?.data?.data?.accessToken) {
         message.success("User logged in successfully!");
+        //@ts-ignore
         if (res?.data?.data?.role === "admin") {
-          navigate.push("/dashboard/company-chart");
+          navigate("/dashboard/company-chart");
+        } //@ts-ignore
+        else if (res?.data?.data?.role === "recruiter") {
+          navigate("/dashboard/job");
         } else {
-          navigate.push("/dashboard/job-list");
+          navigate("/user-profile");
         }
       } else {
         return message.error("Wrong credential!");
       }
-
+      //@ts-ignore
       storeUserInfo({ accessToken: res?.data?.data?.accessToken });
     } catch (err: any) {
       console.error(err.message);

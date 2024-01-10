@@ -1,12 +1,17 @@
 import { createBrowserRouter } from "react-router-dom";
 
 // import PrivateRoutes from "./PrivateRoute";
-import DashboardLayout from "../components/layouts/DashboardLayout";
-import MainLayout from "../components/layouts/MainLayout";
+
+import CreateJob from "../pages/dashboard/job/CreateJob";
+import ViewJobs from "../pages/dashboard/job/ViewJobs";
+
 import LoginPage from "../pages/common/Login";
 import RegisterPage from "../pages/common/SignUp";
-import ViewJob from "../pages/dashboard/job/ViewJob";
+
 import Homepage from "../pages/home/Homepage";
+import CompanyChart from "../pages/dashboard/company/CompanyCharts";
+import MainLayout from "../components/layouts/MainLayout";
+import DashboardLayout from "../components/layouts/DashboardLayout";
 
 const routes = createBrowserRouter([
   {
@@ -42,7 +47,15 @@ const routes = createBrowserRouter([
     children: [
       {
         path: "/dashboard/job",
-        element: <ViewJob />,
+        element: <ViewJobs />,
+      },
+      {
+        path: "/dashboard/job/create",
+        element: <CreateJob />,
+      },
+      {
+        path: "/dashboard/company-chart",
+        element: <CompanyChart />,
       },
       {
         path: "/dashboard/company",
