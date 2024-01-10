@@ -10,13 +10,16 @@ import { Link } from "react-router-dom";
 const AppliedModal = ({ appliedJobInfo }: any) => {
   const [addAppliedJob] = useAddAppliedJobMutation();
   console.log(appliedJobInfo);
+  
 
   const onSubmit = async (data: any) => {
     message.loading("Adding...");
     console.log(data);
     try {
-      await addAppliedJob(appliedJobInfo);
+      const res = await addAppliedJob(appliedJobInfo);
       message.success("Applied successfully");
+      console.log(res);
+
     } catch (err: any) {
       console.error(err.message);
       message.error(err.message);
@@ -69,11 +72,9 @@ const AppliedModal = ({ appliedJobInfo }: any) => {
             marginTop: "10px",
           }}
         >
-          <Link to="/my-application">
-            <Button type="primary" htmlType="submit">
-              Submit Application
-            </Button>
-          </Link>
+          <Button type="primary" htmlType="submit">
+            Submit Application
+          </Button>
         </div>
       </Form>
     </div>
