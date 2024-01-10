@@ -13,7 +13,6 @@ const JobDetails = () => {
   const { data } = useJobQuery(id);
   const [open, setOpen] = useState(false);
 
-
   return (
     <>
       <div

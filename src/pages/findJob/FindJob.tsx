@@ -14,6 +14,22 @@ const FindJob = () => {
   const query: Record<string, any> = {};
   const { data } = useJobsQuery({ ...query });
   const jobData = data?.data?.data;
+  const [searchJob, setSearchJob] = useState([]);
+
+  // Search jobs
+  const handleSearch = async () => {
+    console.log(data);
+    try {
+      const res = await fetch(
+        `https://career-connect-hub-api.vercel.app/api/v1/job?searchTerm=${searchJob}`
+      );
+      const data = await res.json();
+      console.log(data);
+      setSearchJob(data?.data?.data);
+    } catch (error) {
+      console.error("Error:", error);
+    }
+  };
 
   return (
     <div style={{ minHeight: "100vh", margin: "30px 50px" }}>
@@ -66,7 +82,12 @@ const FindJob = () => {
               preferences
             </span>
           </p>
-          <Search placeholder="Search for jobs" enterButton size="large" />
+          <Search
+            placeholder="Search for jobs"
+            enterButton
+            size="large"
+            onClick={handleSearch}
+          />
         </Col>
 
         {jobData?.map((job: IJobData) => (
