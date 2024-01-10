@@ -22,6 +22,7 @@ const FindJob = () => {
           style={{
             color: "#123770",
             marginBottom: "20px",
+            fontSize: "30px"
           }}
         >
           Explore Exciting Job Opportunities
@@ -62,12 +63,8 @@ const FindJob = () => {
           </p>
           <Search
             placeholder="Search for jobs"
-            enterButton="Search"
+            enterButton
             size="large"
-            style={{
-              maxWidth: "500px",
-              width: "100%",
-            }}
           />
         </Col>
 
@@ -82,7 +79,8 @@ const FindJob = () => {
             >
               <div
                 style={{
-                  padding: "20px",
+                  padding: "0 20px",
+                  paddingTop: "20px",
                   color: "blue",
                   display: "flex",
                   gap: "5px",
