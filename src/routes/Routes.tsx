@@ -24,6 +24,7 @@ import Homepage from "../pages/home/Homepage";
 import ResumePage from "../pages/resume/Resume";
 import UserProfile from "../pages/user/Profile";
 import PrivateRoutes from "./PrivateRoute";
+import AddCompany from "../pages/company/CompanySignUp";
 
 const routes = createBrowserRouter([
   {
@@ -73,6 +74,10 @@ const routes = createBrowserRouter([
       {
         path: "/find-job",
         element: <FindJob />,
+      },
+      {
+        path: "/company-sign-up",
+        element: <AddCompany />,
       },
       {
         path: "/details/:id",
