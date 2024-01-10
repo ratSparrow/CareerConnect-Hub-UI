@@ -1,7 +1,7 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
 import Search from "antd/es/input/Search";
 import { useJobsQuery } from "../../redux/api/jobApi";
-import { Button, Card, Col, Divider, Flex, Row } from "antd";
+import { Button, Card, Col, Flex, Row } from "antd";
 import { IJobData } from "../../types";
 import { RiseOutlined } from "@ant-design/icons";
 import { Link } from "react-router-dom";
@@ -21,7 +21,7 @@ const FindJob = () => {
     console.log(data);
     try {
       const res = await fetch(
-        `https://career-connect-hub-api.vercel.app/api/v1/job?searchTerm=${searchJob}`
+        `https://career-connect-hub-api.vercel.app/api/v1/jobs?searchTerm=${searchJob}`
       );
       const data = await res.json();
       console.log(data);
@@ -30,7 +30,7 @@ const FindJob = () => {
       console.error("Error:", error);
     }
   };
-
+  console.log(searchJob);
   return (
     <div style={{ minHeight: "100vh", margin: "30px 50px" }}>
       <div
@@ -90,13 +90,14 @@ const FindJob = () => {
           />
         </Col>
 
-        {jobData?.map((job: IJobData) => (
-          <Col xs={24} sm={24} md={16} lg={16} xl={16} key={job?._id}>
+        <Col xs={24} sm={24} md={16} lg={16} xl={16}>
+          {jobData?.map((job: IJobData) => (
             <div
+              key={job?._id}
               style={{
-                height: "100%",
                 boxShadow: "0px 0px 10px 0px rgba(0,0,0,0.1)",
                 borderRadius: "5px",
+                marginBottom: "10px",
               }}
             >
               <div
@@ -122,7 +123,7 @@ const FindJob = () => {
                   <p>{job?.location}</p>
                 </div>
 
-                <Divider />
+                <br />
 
                 <Flex wrap="wrap" gap="20px">
                   <div>
@@ -142,8 +143,6 @@ const FindJob = () => {
                     <p>{job?.experienceLevel}</p>
                   </div>
                 </Flex>
-
-                <Divider />
                 <br />
                 <Flex wrap="wrap" gap="small" justify="end" align="center">
                   <Link to={`/details/${job?._id}`}>View Details</Link>
@@ -153,8 +152,8 @@ const FindJob = () => {
                 </Flex>
               </Card>
             </div>
-          </Col>
-        ))}
+          ))}
+        </Col>
       </Row>
       <GlobalModal open={open} setOpen={setOpen} width={650} title={""}>
         <AppliedModal />
