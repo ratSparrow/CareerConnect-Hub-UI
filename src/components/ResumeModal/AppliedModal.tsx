@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/ban-ts-comment */
 /* eslint-disable @typescript-eslint/no-explicit-any */
 
 import { Button, message } from "antd";
@@ -5,21 +6,24 @@ import Form from "../Forms/Form";
 import FormTextArea from "../Forms/FormTextArea";
 import { useAddAppliedJobMutation } from "../../redux/api/appliedJobApi";
 import FormInput from "../Forms/FormInput";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 
 const AppliedModal = ({ appliedJobInfo }: any) => {
   const [addAppliedJob] = useAddAppliedJobMutation();
-  console.log(appliedJobInfo);
-  
+  // console.log(appliedJobInfo);
+  const navigate = useNavigate();
 
   const onSubmit = async (data: any) => {
     message.loading("Adding...");
     console.log(data);
     try {
       const res = await addAppliedJob(appliedJobInfo);
-      message.success("Applied successfully");
-      console.log(res);
-
+      //@ts-ignore
+      if (res?.data.statusCode === 200) {
+        navigate("/my-application");
+        //@ts-ignore
+        message.success(res.data.message);
+      }
     } catch (err: any) {
       console.error(err.message);
       message.error(err.message);

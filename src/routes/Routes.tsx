@@ -23,6 +23,7 @@ import JobDetails from "../pages/findJob/jobDetails";
 import Homepage from "../pages/home/Homepage";
 import ResumePage from "../pages/resume/Resume";
 import UserProfile from "../pages/user/Profile";
+import PrivateRoutes from "./PrivateRoute";
 
 const routes = createBrowserRouter([
   {
@@ -75,7 +76,11 @@ const routes = createBrowserRouter([
       },
       {
         path: "/details/:id",
-        element: <JobDetails />,
+        element: (
+          <PrivateRoutes>
+            <JobDetails />
+          </PrivateRoutes>
+        ),
       },
       {
         path: "/my-application",
