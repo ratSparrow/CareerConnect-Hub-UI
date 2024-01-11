@@ -14,7 +14,7 @@ const HomePageBanner = () => {
         style={{
           padding: "0 20px",
           color: "white",
-          backgroundColor: "#1967d2",
+          backgroundColor: "#123770",
         }}
       >
         <Col xs={24} sm={12} data-aos="zoom-in-right" data-aos-duration="1000">
@@ -43,10 +43,9 @@ const HomePageBanner = () => {
             style={{
               padding: "0 30px",
               fontSize: "18px",
-              background: "white",
-              color: "#123770",
+              background: "#4096FF",
+              color: "white",
               border: "none",
-              fontWeight: "bold",
             }}
           >
             Post a Job
