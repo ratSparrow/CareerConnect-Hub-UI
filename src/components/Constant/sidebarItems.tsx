@@ -39,12 +39,12 @@ export const sidebarItems = (role: string) => {
 
   const recruiterSidebarItems: MenuProps["items"] = [
     {
-      label: <Link to="/dashboard/job">View Job</Link>,
-      key: `/${role}/dashboard/job`,
-    },
-    {
       label: <Link to="/dashboard/job/create">Publish a Job</Link>,
       key: `/${role}/dashboard/job/create`,
+    },
+    {
+      label: <Link to="/dashboard/job">View Job</Link>,
+      key: `/${role}/dashboard/job`,
     },
     {
       label: <Link to="/dashboard/job/applied-jobs">Applied Job</Link>,

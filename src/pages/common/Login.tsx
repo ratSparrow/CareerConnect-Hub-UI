@@ -39,7 +39,7 @@ const LoginPage = () => {
           navigate("/dashboard/company-chart");
         } //@ts-ignore
         else if (res?.data?.data?.role === "recruiter") {
-          navigate("/dashboard/job");
+          navigate("/dashboard/job/create");
         } else {
           navigate("/find-job");
         }
