@@ -56,41 +56,50 @@ const profiles = [
 const FeaturedProfile = () => {
   return (
     <div className={styles.container}>
-      <h1 style={{ fontSize: "2.2rem", textAlign: "center", margin: "2rem 0" }}>
+      <h1
+        data-aos="zoom-in"
+        data-aos-easing="ease-out-cubic"
+        data-aos-duration="1000"
+        style={{ fontSize: "2.2rem", textAlign: "center", margin: "2rem 0" }}
+      >
         Featured Profile
       </h1>
       <div className={styles.cardGrid}>
-        {profiles.map((profile) => (
-          <div key={profile._id} className={styles.Cardcontainer}>
-            <div className={styles.Card}>
-              <img src={profile.img} alt="" />
-              <div className={styles.textContainer}>
-                <h4>{profile.name}</h4>
-                <p>{profile.title}</p>
-                <div
-                  style={{
-                    display: "flex",
-                    justifyContent: "space-between",
-                    fontWeight: "bold",
-                  }}
-                >
-                  <p>
-                    <Link
-                      style={{ textDecoration: "none", color: "#123770" }}
-                      to=""
-                    >
-                      View Profile
-                    </Link>
-                  </p>
-                  <p>
-                    <Link
-                      style={{ textDecoration: "none", color: "#1966D0" }}
-                      to=""
-                    >
-                      <HeartOutlined />
-                    </Link>
-                  </p>
-                </div>
+        {profiles?.slice(0, 4).map((profile) => (
+          <div
+            data-aos="zoom-in"
+            data-aos-easing="ease-out-cubic"
+            data-aos-duration="1000"
+            key={profile._id}
+            className={styles.Cardcontainer}
+          >
+            <img src={profile.img} alt="" />
+            <div className={styles.textContainer}>
+              <h4>{profile.name}</h4>
+              <p>{profile.title}</p>
+              <div
+                style={{
+                  display: "flex",
+                  justifyContent: "space-between",
+                  fontWeight: "bold",
+                }}
+              >
+                <p>
+                  <Link
+                    style={{ textDecoration: "none", color: "#123770" }}
+                    to=""
+                  >
+                    View Profile
+                  </Link>
+                </p>
+                <p>
+                  <Link
+                    style={{ textDecoration: "none", color: "#1966D0" }}
+                    to=""
+                  >
+                    <HeartOutlined />
+                  </Link>
+                </p>
               </div>
             </div>
           </div>

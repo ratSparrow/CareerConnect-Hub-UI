@@ -43,10 +43,9 @@ const HomePageBanner = () => {
             style={{
               padding: "0 30px",
               fontSize: "18px",
-              background: "white",
-              color: "#1967d2",
+              background: "#4096FF",
+              color: "white",
               border: "none",
-              fontWeight: "bold",
             }}
           >
             Post a Job

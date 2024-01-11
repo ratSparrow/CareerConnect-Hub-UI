@@ -4,12 +4,12 @@ import { Progress } from "antd";
 import { useEducationQuery } from "../../redux/api/educationApi";
 import { usePortfolioQuery } from "../../redux/api/portfolioApi";
 import { useProjectQuery } from "../../redux/api/projectApi";
+import { useSkillQuery } from "../../redux/api/skillApi";
 import { useTrainingQuery } from "../../redux/api/trainingApi";
 import { useUserProfileQuery } from "../../redux/api/userApi";
 import { useWorkExperienceQuery } from "../../redux/api/workExperienceApi";
 import { getUserInfo, getUserToken } from "../../services/auth.service";
 import "./css/Profile.css";
-import { useSkillQuery } from "../../redux/api/skillApi";
 
 const UserProfile = () => {
   const { email } = getUserInfo() as any;
@@ -23,6 +23,8 @@ const UserProfile = () => {
   const { data: TrainingData } = useTrainingQuery(email);
   const { data: SkillData } = useSkillQuery(email);
   const { data: ExperienceData } = useWorkExperienceQuery(email);
+
+  // console.log(UserProfileData);
 
   return (
     <div className="main_body">
@@ -291,7 +293,7 @@ const UserProfile = () => {
                       {SkillData?.data[0]?.skills?.map(
                         (data: any, _key: any) => (
                           <>
-                            {console.log("dt", data)}
+                            {/* {console.log("dt", data)} */}
                             <li>{data}</li>
                           </>
                         )

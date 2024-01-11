@@ -194,8 +194,7 @@ const NavBar = () => {
             Find jobs
           </Link>
         </div>
-
-        {role && (
+        {role === "applicant" && (
           <Space size={16} wrap>
             <Dropdown menu={{ items }}>
               <Space wrap size={16}>
