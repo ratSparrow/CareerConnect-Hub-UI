@@ -1,0 +1,49 @@
+.container {
+  width: 90%;
+  margin: 3rem auto;
+  overflow: hidden;
+}
+
+.cardGrid {
+  display: flex;
+}
+
+.Cardcontainer {
+  background-color: #ffffff;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  border: 1px solid #ddd;
+  border-radius: 5px;
+  animation: scroll 40s linear infinite;
+  width: 18rem;
+  margin: 0 1rem;
+}
+
+@keyframes scroll {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(calc(-18rem * 8));
+  }
+}
+
+.Cardcontainer img {
+  width: 18rem;
+  height: 18rem;
+}
+
+.textContainer {
+  background: white;
+  padding: 1rem;
+}
+
+.textContainer h4 {
+  font-size: 1.4rem;
+}
+
+.textContainer p {
+  font-size: 1rem;
+  color: gray;
+  margin: 0.8rem 0;
+  font-weight: 600;
+}
