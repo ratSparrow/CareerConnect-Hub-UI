@@ -1,6 +1,6 @@
 /* eslint-disable @typescript-eslint/ban-ts-comment */
 
-import { AppstoreOutlined, UserOutlined } from "@ant-design/icons";
+import { AppstoreOutlined} from "@ant-design/icons";
 
 import type { MenuProps } from "antd";
 import { Link } from "react-router-dom";
@@ -39,40 +39,15 @@ export const sidebarItems = (role: string) => {
 
   const recruiterSidebarItems: MenuProps["items"] = [
     {
-      label: "Manage Job",
-      key: "management",
-      icon: <AppstoreOutlined />,
-      children: [
-        {
-          label: <Link to="/dashboard/job">View Job</Link>,
-          key: `/${role}/dashboard/job`,
-        },
-        {
-          label: <Link to="/dashboard/job/create">Publish a Job</Link>,
-          key: `/${role}/dashboard/job/create`,
-        },
-        {
-          label: (
-            <Link to="/dashboard/job/applied-jobssidbar">Applied Job</Link>
-          ),
-          key: `/${role}/dashboard/job/appliedJob`,
-        },
-      ],
+      label: <Link to="/dashboard/job">View Job</Link>,
+      key: `/${role}/dashboard/job`,
     },
     {
-      label: (
-        <Link to="/dashboard/job/create">
-          <AppstoreOutlined /> Publish a Job
-        </Link>
-      ),
+      label: <Link to="/dashboard/job/create">Publish a Job</Link>,
       key: `/${role}/dashboard/job/create`,
     },
     {
-      label: (
-        <Link to="/dashboard/job/applied-jobs">
-          <UserOutlined /> Applied Job
-        </Link>
-      ),
+      label: <Link to="/dashboard/job/applied-jobssidbar">Applied Job</Link>,
       key: `/${role}/dashboard/job/appliedJob`,
     },
   ];
