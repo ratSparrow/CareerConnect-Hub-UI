@@ -1,0 +1,56 @@
+.container {
+  width: 90%;
+  margin: 3rem auto;
+}
+
+.cardGrid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 2rem;
+}
+
+.Cardcontainer {
+  background-color: #ffffff;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  border-radius: 20px;
+}
+
+.Cardcontainer:hover {
+  margin-top: -0.6rem;
+  transition: 0.2s ease;
+}
+
+.Cardcontainer img {
+  width: 100%;
+  height: 18rem;
+}
+
+.textContainer {
+  background: white;
+  padding: 1rem;
+}
+
+.textContainer h4 {
+  font-size: 1.4rem;
+}
+
+.textContainer p {
+  font-size: 1rem;
+  color: gray;
+  margin: 0.8rem 0;
+  font-weight: 600;
+}
+
+@media screen and (max-width: 768px) {
+  .cardGrid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 2rem;
+  }
+}
+
+@media screen and (max-width: 600px) {
+  .cardGrid {
+    grid-template-columns: repeat(1, 1fr);
+    gap: 2rem;
+  }
+}

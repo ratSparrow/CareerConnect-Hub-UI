@@ -120,7 +120,7 @@ const MyApplicationPage = () => {
   ] as const;
 
   return (
-    <Row justify="center">
+    <Row justify="center" style={{ minHeight: "100vh" }}>
       <Col sm={22} md={22} lg={22}>
         <h1 style={{ textAlign: "center", margin: "2rem 0" }}>
           My Applications

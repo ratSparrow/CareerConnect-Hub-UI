@@ -3,7 +3,7 @@ import { UserOutlined } from "@ant-design/icons";
 import { Col, Row } from "antd";
 import { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
-import "./HomeBlog.css";
+import styles from "./HomeBlog.module.css";
 
 interface Blog {
   _id: string;
@@ -63,21 +63,21 @@ const HomeBlog = () => {
             Our Latest Blogs
           </h1>
         </div>
-        <div className="CardContainer">
+        <div className={styles.CardContainer}>
           {data?.slice(0, 3).map((blog: any) => (
             <div
               data-aos="zoom-in"
               data-aos-easing="ease-out-cubic"
               data-aos-duration="1000"
               key={blog?._id}
-              className="CardDesign"
+              className={styles.CardDesign}
             >
               <div>
-                <img src={blog?.img} alt="Image" className="cardImage" />
+                <img src={blog?.img} alt="Image" className={styles.cardImage} />
               </div>
-              <div className="cardTextContainer">
-                <p className="cardTitle">{blog?.title}</p>
-                <div className="small">
+              <div className={styles.cardTextContainer}>
+                <p className={styles.cardTitle}>{blog?.title}</p>
+                <div className={styles.small}>
                   <p>
                     <UserOutlined />
                     <span style={{ marginLeft: ".4rem" }}>{blog?.author}</span>

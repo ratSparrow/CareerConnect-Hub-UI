@@ -41,7 +41,7 @@ const NavBar = () => {
     items.push(
       {
         key: "1",
-        label: <Link to={`/user-profile`}>Profile</Link>,
+        label: <Link to={`/user-profile`}>My Profile</Link>,
       },
       {
         key: "2",
@@ -190,8 +190,7 @@ const NavBar = () => {
             Find jobs
           </Link>
         </div>
-
-        {role && (
+        {role === "applicant" && (
           <Space size={16} wrap>
             <Dropdown menu={{ items }}>
               <Space wrap size={16}>

@@ -14,7 +14,7 @@ export enum tagTypes {
   event = "event",
   users = "users",
   appliedJob = "applied-job",
-  myApplication = "myApplication",
+  myApplication = "myApplication"
 }
 
 export const tagTypesList = [
