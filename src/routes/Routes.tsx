@@ -10,7 +10,6 @@ import CareerServices from "../pages/careerServices/careerServices";
 import LoginPage from "../pages/common/Login";
 import RegisterPage from "../pages/common/SignUp";
 import Homepage from "../pages/home/Homepage";
-import CompanyChart from "../pages/dashboard/company/CompanyCharts";
 import UserProfile from "../pages/user/Profile";
 import ResumePage from "../pages/resume/Resume";
 import FindJob from "../pages/findJob/FindJob";
@@ -100,10 +99,6 @@ const routes = createBrowserRouter([
       {
         path: "/dashboard/job/create",
         element: <CreateJob />,
-      },
-      {
-        path: "/dashboard/company-chart",
-        element: <CompanyChart />,
       },
       {
         path: "/dashboard/job/applied-jobs",

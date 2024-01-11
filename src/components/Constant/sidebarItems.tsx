@@ -1,9 +1,7 @@
-import { AppstoreOutlined } from "@ant-design/icons";
+import { AppstoreOutlined, EyeOutlined, UserOutlined } from "@ant-design/icons";
 import type { MenuProps } from "antd";
 import { Link } from "react-router-dom";
 import { USER_ROLE } from "./role";
-
-
 
 export const sidebarItems = (role: string) => {
   const adminSidebarItems: MenuProps["items"] = [
@@ -51,25 +49,17 @@ export const sidebarItems = (role: string) => {
   ];
   const recruiterSidebarItems: MenuProps["items"] = [
     {
-      label: "Manage Job",
-      key: "management",
-      icon: <AppstoreOutlined />,
-      children: [
-        {
-          label: <Link to="/dashboard/job">View Job</Link>,
-          key: `/${role}/dashboard/job`,
-        },
-        {
-          label: <Link to="/dashboard/job/create">Publish a Job</Link>,
-          key: `/${role}/dashboard/job/create`,
-        },
-        {
-          label: <Link to="/dashboard/job/appliedJob">Applied Job</Link>,
-          key: `/${role}/dashboard/job/appliedJob`,
-        },
-      ],
+      label: <Link to="/dashboard/job"><EyeOutlined /> View Job</Link>,
+      key: `/${role}/dashboard/job`,
     },
-
+    {
+      label: <Link to="/dashboard/job/create"><AppstoreOutlined /> Publish a Job</Link>,
+      key: `/${role}/dashboard/job/create`,
+    },
+    {
+      label: <Link to="/dashboard/job/applied-jobs"><UserOutlined /> Applied Job</Link>,
+      key: `/${role}/dashboard/job/appliedJob`,
+    },
   ];
 
   if (role === USER_ROLE.ADMIN) return adminSidebarItems;
