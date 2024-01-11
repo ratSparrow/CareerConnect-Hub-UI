@@ -9,7 +9,6 @@ const Contact = () => {
         justify="center"
         align="middle"
         style={{
-          minHeight: "100vh",
           backgroundColor: "#EEEEEE",
         }}
       >
@@ -21,7 +20,7 @@ const Contact = () => {
             backgroundColor: "white",
             borderRadius: ".5rem",
             padding: "1.5rem",
-            margin: "2rem 0",
+            margin: "1rem",
           }}
         >
           <h1
@@ -90,8 +89,8 @@ const Contact = () => {
           <div className={style.office}>
             <div style={{ display: "flex", gap: "1rem" }}>
               <img
-                style={{ height: "2.8rem" }}
-                src="../../../public/assets/contact_icon1.jpg"
+                className={style.img}
+                src="/assets/contact_icon1.jpg"
                 alt=""
               />
               <div className="">
@@ -103,8 +102,8 @@ const Contact = () => {
             </div>
             <div style={{ display: "flex", gap: "1rem" }}>
               <img
-                style={{ height: "2.8rem" }}
-                src="../../../public/assets/contact_icon2.jpg"
+                className={style.img}
+                src="/assets/contact_icon2.jpg"
                 alt=""
               />
               <div className="">
@@ -114,8 +113,8 @@ const Contact = () => {
             </div>
             <div style={{ display: "flex", gap: "1rem" }}>
               <img
-                style={{ height: "2.8rem" }}
-                src="../../../public/assets/contact_icon3.jpg"
+                className={style.img}
+                src="/assets/contact_icon3.jpg"
                 alt=""
               />
               <div className="">
