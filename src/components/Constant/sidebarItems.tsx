@@ -35,21 +35,6 @@ export const sidebarItems = (role: string) => {
         },
       ],
     },
-    {
-      label: "Manage Events",
-      key: "events",
-      icon: <AppstoreOutlined />,
-      children: [
-        {
-          label: <Link to="/dashboard/events">View Events</Link>,
-          key: `/${role}/dashboard/events`,
-        },
-        {
-          label: <Link to="/dashboard/events/create">Create an event</Link>,
-          key: `/${role}/dashboard/events/create`,
-        },
-      ],
-    },
   ];
 
   const recruiterSidebarItems: MenuProps["items"] = [
@@ -67,7 +52,9 @@ export const sidebarItems = (role: string) => {
           key: `/${role}/dashboard/job/create`,
         },
         {
-          label: <Link to="/dashboard/job/applied-jobssidbar">Applied Job</Link>,
+          label: (
+            <Link to="/dashboard/job/applied-jobssidbar">Applied Job</Link>
+          ),
           key: `/${role}/dashboard/job/appliedJob`,
         },
       ],

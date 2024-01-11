@@ -26,6 +26,7 @@ import ViewBlogs from "../pages/dashboard/blog/ViewBlogs";
 import UpdateCompany from "../pages/dashboard/company/UpdateCompany";
 import ViewCompany from "../pages/dashboard/company/ViewCompany";
 import AppliedJobs from "../pages/dashboard/job/AppliedJobs";
+import CompanyChart from "../pages/dashboard/company/CompanyCharts";
 
 const routes = createBrowserRouter([
   {
@@ -139,6 +140,11 @@ const routes = createBrowserRouter([
         path: "/dashboard/company/edit/:id",
         element: <UpdateCompany />,
       },
+      {
+        path: "/dashboard/company-chart",
+        element: <CompanyChart />,
+      },
+    
     ],
   },
 ]);
