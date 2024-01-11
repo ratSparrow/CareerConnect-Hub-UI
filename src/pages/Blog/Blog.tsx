@@ -1,7 +1,9 @@
-import { CalendarOutlined, UserOutlined } from "@ant-design/icons";
+/* eslint-disable @typescript-eslint/no-explicit-any */
+import { UserOutlined } from "@ant-design/icons";
 import { Col, Row } from "antd";
 import { useEffect, useState } from "react";
-import styles from "./Blog.module.css";
+import { Link } from "react-router-dom";
+import style from "./Blog.module.css";
 
 interface Blog {
   _id: string;
@@ -34,54 +36,65 @@ const Blog = () => {
         justify="center"
         align="middle"
         style={{
-          backgroundColor: "white",
+          backgroundColor: "#FFFFFF",
         }}
       >
+        <div className={style.header}>
+          <div>
+            <h1 style={{ fontSize: "2.4rem", marginBottom: "1rem" }}>Blog</h1>
+            <p style={{ fontSize: "1.3rem" }}>
+              {" "}
+              <Link style={{ color: "white" }} to="/">
+                Home
+              </Link>{" "}
+              {">"} Blog
+            </p>
+          </div>
+        </div>
         <Col
           sm={23}
           md={23}
-          lg={22}
+          lg={23}
           style={{
             borderRadius: ".5rem",
             margin: "1rem 0",
           }}
         >
-          <h1
+          <div
             style={{
-              borderBottom: "1px solid #00A5EC",
-              margin: "5px",
-              // textAlign: "center",
+              padding: "1.5rem 0",
+              textAlign: "center",
             }}
-          >
-            Latest Blogs
-          </h1>
-          <div className={styles.CardContainer}>
-            {data?.map((blog) => (
-              <div key={blog?._id} className={styles.CardDesign}>
+          ></div>
+          <div className={style.CardContainer}>
+            {data?.map((blog: any) => (
+              <div
+                data-aos="zoom-in"
+                data-aos-easing="ease-out-cubic"
+                data-aos-duration="1000"
+                key={blog?._id}
+                className={style.CardDesign}
+              >
                 <div>
                   <img
                     src={blog?.img}
                     alt="Image"
-                    className={styles.cardImage}
+                    className={style.cardImage}
                   />
                 </div>
-                <div className={styles.cardTextContainer}>
-                  <p className={styles.cardTitle}>{blog?.title}</p>
-                  <p className={styles.cardText}>
-                    {blog?.content?.slice(0, 143)}
-                  </p>
-                  <div className={styles.small}>
-                    <p>
-                      <CalendarOutlined />{" "}
-                      <span style={{ marginLeft: ".4rem" }}>
-                        {blog?.publishDate}
-                      </span>
-                    </p>
+                <div className={style.cardTextContainer}>
+                  <p className={style.cardTitle}>{blog?.title}</p>
+                  <div className={style.small}>
                     <p>
                       <UserOutlined />
                       <span style={{ marginLeft: ".4rem" }}>
                         {blog?.author}
                       </span>
+                    </p>
+                    <p>
+                      <Link style={{ fontWeight: "bold" }} to="/blog">
+                        Read more
+                      </Link>
                     </p>
                   </div>
                 </div>

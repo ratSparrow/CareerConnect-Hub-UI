@@ -40,20 +40,24 @@ const NavBar = () => {
     return navigate("/login");
   };
 
-  const items: MenuProps["items"] = [
-    {
-      key: "1",
-      label: <Link to={`/user-profile`}>Profile</Link>,
-    },
-    {
-      key: "2",
-      label: <Link to={`/resume`}>Edit Resume</Link>,
-    },
-    {
-      key: "3",
-      label: <Link to={`/my-application`}>My Application</Link>,
-    },
-  ];
+  const items: MenuProps["items"] = [];
+
+  if (role === "applicant") {
+    items.push(
+      {
+        key: "1",
+        label: <Link to={`/user-profile`}>Profile</Link>,
+      },
+      {
+        key: "2",
+        label: <Link to={`/resume`}>Edit Resume</Link>,
+      },
+      {
+        key: "3",
+        label: <Link to={`/my-application`}>My Application</Link>,
+      }
+    );
+  }
 
   return (
     <div style={{}}>

@@ -1,5 +1,5 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
-import { CalendarOutlined, UserOutlined } from "@ant-design/icons";
+import { UserOutlined } from "@ant-design/icons";
 import { Col, Row } from "antd";
 import { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
@@ -35,7 +35,7 @@ const HomeBlog = () => {
       justify="center"
       align="middle"
       style={{
-        backgroundColor: "#E5E3FF",
+        backgroundColor: "#FFFFFF",
         padding: "3em 0",
       }}
     >
@@ -58,22 +58,13 @@ const HomeBlog = () => {
             data-aos="zoom-in"
             data-aos-easing="ease-out-cubic"
             data-aos-duration="1000"
+            style={{ fontSize: "2.2rem" }}
           >
-            Recent News Blogs
+            Our Latest Blogs
           </h1>
-          <p
-            data-aos="zoom-in"
-            data-aos-easing="ease-out-cubic"
-            data-aos-duration="1000"
-            style={{
-              padding: "1rem 0",
-            }}
-          >
-            Fresh job related news content posted each day.
-          </p>
         </div>
         <div className="CardContainer">
-          {data?.map((blog: any) => (
+          {data?.slice(0, 3).map((blog: any) => (
             <div
               data-aos="zoom-in"
               data-aos-easing="ease-out-cubic"
@@ -85,23 +76,18 @@ const HomeBlog = () => {
                 <img src={blog?.img} alt="Image" className="cardImage" />
               </div>
               <div className="cardTextContainer">
+                <p className="cardTitle">{blog?.title}</p>
                 <div className="small">
-                  <p>
-                    <CalendarOutlined />{" "}
-                    <span style={{ marginLeft: ".4rem" }}>
-                      {blog?.publishDate}
-                    </span>
-                  </p>
                   <p>
                     <UserOutlined />
                     <span style={{ marginLeft: ".4rem" }}>{blog?.author}</span>
                   </p>
+                  <p>
+                    <Link style={{ fontWeight: "bold" }} to="/blog">
+                      Read more
+                    </Link>
+                  </p>
                 </div>
-                <p className="cardTitle">{blog?.title}</p>
-                <p className="cardText">{blog?.content?.slice(0, 143)}</p>
-                <Link style={{ fontWeight: "bold" }} to="/blog">
-                  Read more
-                </Link>
               </div>
             </div>
           ))}
