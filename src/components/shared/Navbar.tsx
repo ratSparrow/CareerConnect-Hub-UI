@@ -18,22 +18,17 @@ import {
   Space,
 } from "antd";
 
-import { useEffect, useState } from "react";
+import { useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import { getUserInfo, removeUserInfo } from "../../services/auth.service";
 
 const NavBar = () => {
   const [openMenu, setOpenMenu] = useState(false);
-  const [role, setRole] = useState(null);
 
   const navigate = useNavigate();
-
-  useEffect(() => {
-    // Fetch user role on mount
-    const { role } = getUserInfo() as any;
-    setRole(role);
-  }, []);
-  // console.log(role);
+  const { role, accessToken } = getUserInfo() as any;
+  console.log(role);
+  console.log(accessToken);
 
   const handleLogout = (accessToken: string) => {
     removeUserInfo(accessToken);
