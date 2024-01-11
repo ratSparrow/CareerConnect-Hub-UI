@@ -19,6 +19,7 @@ const JobDetails = () => {
     companyEmail: data?.data.contactEmail,
     jobSeekerEmail: email,
   };
+
   return (
     <>
       <div

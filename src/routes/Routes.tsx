@@ -1,30 +1,32 @@
 // import PrivateRoutes from "./PrivateRoute";
 import { createBrowserRouter } from "react-router-dom";
-import DashboardLayout from "../components/layouts/DashboardLayout";
 import MainLayout from "../components/layouts/MainLayout";
+import Homepage from "../pages/home/Homepage";
+import CareerServices from "../pages/careerServices/careerServices";
 import Blog from "../pages/Blog/Blog";
 import Contact from "../pages/Contact/Contact";
-import PrivacyPage from "../pages/Privacy/Privacy";
 import TermsPage from "../pages/Terms/Terms";
-import CareerServices from "../pages/careerServices/careerServices";
+import PrivacyPage from "../pages/Privacy/Privacy";
 import LoginPage from "../pages/common/Login";
 import RegisterPage from "../pages/common/SignUp";
+import UserProfile from "../pages/user/Profile";
+import ResumePage from "../pages/resume/Resume";
+import FindJob from "../pages/findJob/FindJob";
+import AddCompany from "../pages/company/CompanySignUp";
+import PrivateRoutes from "./PrivateRoute";
+import JobDetails from "../pages/findJob/jobDetails";
+import MyApplicationPage from "../pages/dashboard/myApplication/myApplication";
+import DashboardLayout from "../components/layouts/DashboardLayout";
+import ViewJobs from "../pages/dashboard/job/ViewJobs";
+import EditJob from "../pages/dashboard/job/EditJob";
+import CreateJob from "../pages/dashboard/job/CreateJob";
+import CompanyChart from "../pages/dashboard/company/CompanyCharts";
 import CreateBlog from "../pages/dashboard/blog/CreateBlog";
 import EditBlog from "../pages/dashboard/blog/EditBlog";
 import ViewBlogs from "../pages/dashboard/blog/ViewBlogs";
-import CompanyChart from "../pages/dashboard/company/CompanyCharts";
+import UpdateCompany from "../pages/dashboard/company/UpdateCompany";
+import ViewCompany from "../pages/dashboard/company/ViewCompany";
 import AppliedJobs from "../pages/dashboard/job/AppliedJobs";
-import CreateJob from "../pages/dashboard/job/CreateJob";
-import EditJob from "../pages/dashboard/job/EditJob";
-import ViewJobs from "../pages/dashboard/job/ViewJobs";
-import MyApplicationPage from "../pages/dashboard/myApplication/myApplication";
-import FindJob from "../pages/findJob/FindJob";
-import JobDetails from "../pages/findJob/jobDetails";
-import Homepage from "../pages/home/Homepage";
-import ResumePage from "../pages/resume/Resume";
-import UserProfile from "../pages/user/Profile";
-import PrivateRoutes from "./PrivateRoute";
-import AddCompany from "../pages/company/CompanySignUp";
 
 const routes = createBrowserRouter([
   {
@@ -136,7 +138,11 @@ const routes = createBrowserRouter([
       },
       {
         path: "/dashboard/company",
-        element: <EditBlog />,
+        element: <ViewCompany />,
+      },
+      {
+        path: "/dashboard/company/edit/:id",
+        element: <UpdateCompany />,
       },
     ],
   },

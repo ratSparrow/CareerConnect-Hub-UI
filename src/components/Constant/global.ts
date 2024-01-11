@@ -74,7 +74,7 @@ export const jobTypeOptions = [
       value: "Small",
     },
   ];
-  export const status = [
+  export const companyStatus = [
     {
       label: "Pending",
       value: "pending",
