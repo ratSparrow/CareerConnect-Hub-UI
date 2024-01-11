@@ -30,7 +30,7 @@ const ViewBlogs = () => {
     setPage(page);
     setSize(pageSize);
   };
-  const onTableChange = (pagination: any, filter: any, sorter: any) => {
+  const onTableChange = (sorter: any) => {
     const { order, field } = sorter;
     // console.log(order, field);
     setSortBy(field as string);

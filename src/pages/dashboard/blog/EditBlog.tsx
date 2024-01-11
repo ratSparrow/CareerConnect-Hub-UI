@@ -11,7 +11,7 @@ import FormTextArea from "../../../components/Forms/FormTextArea";
 
 const EditBlog = () => {
   const { id } = useParams();
-  const { data, isLoading } = useBlogQuery(id);
+  const { data } = useBlogQuery(id);
   const [updateBlog] = useUpdateBlogMutation();
 
   console.log(id);

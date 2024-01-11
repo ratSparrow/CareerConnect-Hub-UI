@@ -126,7 +126,6 @@ const MyApplicationPage = () => {
           My Applications
         </h1>
         <DataTable
-          //   loading={isLoading}
           columns={columns}
           dataSource={applicationData}
           showSizeChanger={true}

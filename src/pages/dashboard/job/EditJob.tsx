@@ -7,14 +7,14 @@ import BreadCrumb from "../../../components/ui/dashboard/common/BreadCrumb";
 import Form from "../../../components/Forms/Form";
 import FormInput from "../../../components/Forms/FormInput";
 import FormSelectField from "../../../components/Forms/FormSelectField";
-import { experienceLevelOptions, jobTypeOptions } from "../../../components/Constant/global";
+import { experienceLevelOptions, jobTypeOptions } from "../../../components/constant/global";
 import FormTextArea from "../../../components/Forms/FormTextArea";
 import FormDatePicker from "../../../components/Forms/FormDatePicker";
 import { useParams } from "react-router-dom";
 
 const EditJob = () => {
   const { id } = useParams();
-  const { data, isLoading } = useJobQuery(id);
+  const { data } = useJobQuery(id);
   const [updateJob] = useUpdateJobMutation();
 
   const onSubmit = async (data: any) => {

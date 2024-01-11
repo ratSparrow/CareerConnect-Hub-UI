@@ -4,7 +4,7 @@ import { Layout, Menu } from "antd";
 
 import { Link } from "react-router-dom";
 import { getUserInfo } from "../../../../services/auth.service";
-import { sidebarItems } from "../../../Constant/sidebarItems";
+import { sidebarItems } from "../../../constant/sidebarItems";
 import logo from "../../../../assets/images/1-removebg-preview.png"
 
 const { Sider } = Layout;
