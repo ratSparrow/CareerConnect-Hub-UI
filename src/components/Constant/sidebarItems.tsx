@@ -1,6 +1,6 @@
 /* eslint-disable @typescript-eslint/ban-ts-comment */
 
-import { AppstoreOutlined, UserOutlined } from "@ant-design/icons";
+import { AppstoreOutlined} from "@ant-design/icons";
 
 import type { MenuProps } from "antd";
 import { Link } from "react-router-dom";
