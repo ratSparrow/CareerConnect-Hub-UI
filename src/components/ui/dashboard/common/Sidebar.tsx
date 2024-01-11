@@ -5,6 +5,7 @@ import { Layout, Menu } from "antd";
 import { Link } from "react-router-dom";
 import { getUserInfo } from "../../../../services/auth.service";
 import { sidebarItems } from "../../../Constant/sidebarItems";
+import logo from "../../../../assets/images/1-removebg-preview.png"
 
 const { Sider } = Layout;
 
@@ -38,7 +39,14 @@ const SideBar = () => {
           padding: "10px 0px",
         }}
       >
-        <Link to="/">CareerConnect Hub</Link>
+        <Link to="/">
+          <img src={logo} className="dashboardLogo" style={{
+            // height: "50px",
+            // width: "200px",
+            // borderRadius: "50%",
+            // marginBottom: "10px"
+          }}/>
+        </Link>
       </div>
       <Menu
         theme="dark"
