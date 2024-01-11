@@ -1,5 +1,7 @@
 /* eslint-disable @typescript-eslint/ban-ts-comment */
-import { AppstoreOutlined } from "@ant-design/icons";
+
+import { AppstoreOutlined, UserOutlined } from "@ant-design/icons";
+
 import type { MenuProps } from "antd";
 import { Link } from "react-router-dom";
 //@ts-ignore
@@ -69,6 +71,22 @@ export const sidebarItems = (role: string) => {
           key: `/${role}/dashboard/job/appliedJob`,
         },
       ],
+    },
+    {
+      label: (
+        <Link to="/dashboard/job/create">
+          <AppstoreOutlined /> Publish a Job
+        </Link>
+      ),
+      key: `/${role}/dashboard/job/create`,
+    },
+    {
+      label: (
+        <Link to="/dashboard/job/applied-jobs">
+          <UserOutlined /> Applied Job
+        </Link>
+      ),
+      key: `/${role}/dashboard/job/appliedJob`,
     },
   ];
 

@@ -20,7 +20,6 @@ import DashboardLayout from "../components/layouts/DashboardLayout";
 import ViewJobs from "../pages/dashboard/job/ViewJobs";
 import EditJob from "../pages/dashboard/job/EditJob";
 import CreateJob from "../pages/dashboard/job/CreateJob";
-import CompanyChart from "../pages/dashboard/company/CompanyCharts";
 import CreateBlog from "../pages/dashboard/blog/CreateBlog";
 import EditBlog from "../pages/dashboard/blog/EditBlog";
 import ViewBlogs from "../pages/dashboard/blog/ViewBlogs";
@@ -115,10 +114,6 @@ const routes = createBrowserRouter([
       {
         path: "/dashboard/job/create",
         element: <CreateJob />,
-      },
-      {
-        path: "/dashboard/company-chart",
-        element: <CompanyChart />,
       },
       {
         path: "/dashboard/job/applied-jobs",

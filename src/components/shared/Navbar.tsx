@@ -41,7 +41,7 @@ const NavBar = () => {
     items.push(
       {
         key: "1",
-        label: <Link to={`/user-profile`}>Profile</Link>,
+        label: <Link to={`/user-profile`}>My Profile</Link>,
       },
       {
         key: "2",
