@@ -41,7 +41,7 @@ const LoginPage = () => {
         else if (res?.data?.data?.role === "recruiter") {
           navigate("/dashboard/job");
         } else {
-          navigate("/user-profile");
+          navigate("/find-job");
         }
       } else {
         return message.error("Wrong credential!");
