@@ -31,14 +31,16 @@ const MyApplicationPage = () => {
   useEffect(() => {
     const fetchData = async () => {
       try {
-        const res = await fetch(
-          `https://career-connect-hub-api.vercel.app/api/v1/applied-job/applicant/${email}`,
-          {
-            cache: "no-store",
-          }
-        );
-        const data = await res.json();
-        setApplicationData(data?.data);
+        if (email) {
+          const res = await fetch(
+            `https://career-connect-hub-api.vercel.app/api/v1/applied-job/applicant/${email}`,
+            {
+              cache: "no-store",
+            }
+          );
+          const data = await res.json();
+          setApplicationData(data?.data);
+        }
       } catch (error) {
         console.error("Error fetching Blog details:", error);
       }
@@ -58,7 +60,7 @@ const MyApplicationPage = () => {
     setPage(page);
     setSize(pageSize);
   };
-  const onTableChange = (pagination: any, filter: any, sorter: any) => {
+  const onTableChange = (sorter: any) => {
     const { order, field } = sorter;
     // console.log(order, field);
     setSortBy(field as string);

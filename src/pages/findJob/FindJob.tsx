@@ -242,9 +242,6 @@ const FindJob = () => {
                     <br />
                     <Flex wrap="wrap" gap="small" justify="end" align="center">
                       <Link to={`/details/${job?._id}`}>View Details</Link>
-                      <Button type="primary" onClick={() => setOpen(true)}>
-                        Apply Now
-                      </Button>
                     </Flex>
                   </Card>
                 </div>

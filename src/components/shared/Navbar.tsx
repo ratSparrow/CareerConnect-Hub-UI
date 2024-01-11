@@ -50,7 +50,7 @@ const NavBar = () => {
       },
       {
         key: "2",
-        label: <Link to={`/resume`}>Edit Resume</Link>,
+        label: <Link to={`/edit-resume`}>Edit Resume</Link>,
       },
       {
         key: "3",
