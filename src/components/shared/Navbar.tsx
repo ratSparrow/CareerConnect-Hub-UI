@@ -26,12 +26,14 @@ const NavBar = () => {
   const [openMenu, setOpenMenu] = useState(false);
 
   const navigate = useNavigate();
-  const { role, accessToken } = getUserInfo() as any;
-  console.log(role);
-  console.log(accessToken);
+  const userData = localStorage.getItem("userInfo")
+  const parseData = JSON.parse(userData)
+  const role = parseData?.role
 
-  const handleLogout = (accessToken: string) => {
-    removeUserInfo(accessToken);
+
+  const handleLogout = () => {
+    // removeUserInfo(accessToken);
+    localStorage.removeItem("userInfo")
     return navigate("/login");
   };
 

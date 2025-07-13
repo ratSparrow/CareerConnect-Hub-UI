@@ -6,7 +6,9 @@ import { baseApi } from "./baseApi";
 
 const JOB_URL = "/jobs";
 
-const token = getFromLocalStorage("accessToken");
+  const userData = localStorage.getItem("userInfo")
+  const parseData = JSON.parse(userData)
+  const token = parseData?.token
 const headers = {
   Authorization: `${token}`,
 };

@@ -7,8 +7,8 @@ import { Link, useNavigate } from "react-router-dom";
 import Form from "../../components/Form/Form";
 import FormInput from "../../components/Form/FormInput";
 import { useUserLoginMutation } from "../../redux/api/authApi";
-import { storeUserInfo } from "../../services/auth.service";
 import "./login.css";
+import Loading from "../../components/ui/common/Loading";
 
 type FormValues = {
   email: string;
@@ -16,12 +16,14 @@ type FormValues = {
 };
 
 const LoginPage = () => {
+  const [loading, setLoading] = useState(false)
   const [userLogin] = useUserLoginMutation();
   const navigate = useNavigate();
 
   const [scale, setScale] = useState(1);
 
   const onSubmit: SubmitHandler<FormValues> = async (data) => {
+    setLoading(true)
     try {
       const loginData = {
         email: data.email,
@@ -33,6 +35,7 @@ const LoginPage = () => {
 
       //@ts-ignore
       if (res?.data?.data?.accessToken) {
+        setLoading(false)
         message.success("User logged in successfully!");
         //@ts-ignore
         if (res?.data?.data?.role === "admin") {
@@ -44,10 +47,12 @@ const LoginPage = () => {
           navigate("/find-job");
         }
       } else {
+        setLoading(false)
         return message.error("Wrong credential!");
       }
       //@ts-ignore
-      storeUserInfo({ accessToken: res?.data?.data?.accessToken });
+      localStorage.setItem("userInfo",JSON.stringify(res?.data?.data) )
+      // storeUserInfo({ accessToken: res?.data?.data?.accessToken, role:res?.data?.data?.role });
     } catch (err: any) {
       console.error(err.message);
     }
@@ -126,7 +131,9 @@ const LoginPage = () => {
               onMouseEnter={() => setScale(1.03)}
               onMouseLeave={() => setScale(1)}
             >
-              Login
+              {
+                loading ? <Loading /> : "Login"
+              }
             </Button>
           </Form>
         </div>

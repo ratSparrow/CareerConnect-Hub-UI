@@ -6,7 +6,9 @@ import { baseApi } from "./baseApi";
 
 const TRAINING_URL = "/training";
 
-const token = getFromLocalStorage("accessToken");
+  const userData = localStorage.getItem("userInfo")
+  const parseData = JSON.parse(userData)
+  const token = parseData?.token
 const headers = {
   Authorization: `${token}`
 }

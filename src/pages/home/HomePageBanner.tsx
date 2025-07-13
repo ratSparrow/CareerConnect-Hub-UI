@@ -2,9 +2,15 @@ import { Button, Col, Row } from "antd";
 import { useState } from "react";
 import GlobalModal from "../../components/shared/GlobalModal";
 import HomePageModal from "./homePageModal";
+import { Link } from "react-router-dom";
 
 const HomePageBanner = () => {
   const [open, setOpen] = useState(false);
+  const userData = localStorage.getItem("userInfo")
+  const parseData = JSON.parse(userData)
+  const role = parseData?.role
+
+  console.log(role)
 
   return (
     <>
@@ -37,19 +43,32 @@ const HomePageBanner = () => {
             for, you’ll find the right people on CareerConnect Hub’s matching
             and hiring platform.
           </p>
-          <Button
-            onClick={() => setOpen(true)}
-            size="large"
-            style={{
-              padding: "0 30px",
-              fontSize: "18px",
-              background: "#4096FF",
-              color: "white",
-              border: "none",
-            }}
-          >
-            Post a Job
-          </Button>
+          {
+            role == "recruiter" ? <Button
+              size="large"
+              style={{
+                padding: "0 30px",
+                fontSize: "18px",
+                background: "#4096FF",
+                color: "white",
+                border: "none",
+              }}
+            >
+              <Link to="/dashboard/job/create">Post a Job</Link>
+            </Button> : <Button
+              onClick={() => setOpen(true)}
+              size="large"
+              style={{
+                padding: "0 30px",
+                fontSize: "18px",
+                background: "#4096FF",
+                color: "white",
+                border: "none",
+              }}
+            >
+              Post a Job
+            </Button>
+          }
         </Col>
         <Col xs={24} sm={12} data-aos="zoom-in-left" data-aos-duration="1000">
           <img

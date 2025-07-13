@@ -10,6 +10,7 @@ import { useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import Form from "../../components/Form/Form";
 import FormInput from "../../components/Form/FormInput";
+import Loading from "../../components/ui/common/Loading";
 
 
 type FormValues = {
@@ -18,34 +19,38 @@ type FormValues = {
 };
 
 const HomePageModal = () => {
+  const [loading, setLoading] = useState(false)
   const [userLogin] = useUserLoginMutation();
   const navigate = useNavigate()
 
   const [scale, setScale] = useState(1);
 
   const onSubmit: SubmitHandler<FormValues> = async (data) => {
+    setLoading(true)
     try {
       const loginData = {
         email: data.email,
         password: data.password,
       };
-      const res = userLogin(loginData);
+      const res = await userLogin(loginData);
       console.log(res);
 
       //@ts-ignore
       if (res?.data?.data?.accessToken) {
         message.success("User logged in successfully!");
+        setLoading(false)
         //@ts-ignore
         if (res?.data?.data?.role === "admin") {
-         navigate("/dashboard/company-chart");
+          navigate("/dashboard/company-chart");
         } //@ts-ignore
         else if (res?.data?.data?.role === "recruiter") {
-         navigate("/dashboard/job");
+          navigate("/dashboard/job");
         } //@ts-ignore
         else {
-         navigate("/user/user-profile");
+          navigate("/user/user-profile");
         }
       } else {
+        setLoading(false)
         return message.error("Wrong credential!");
       }
 
@@ -109,7 +114,9 @@ const HomePageModal = () => {
           onMouseEnter={() => setScale(1.03)}
           onMouseLeave={() => setScale(1)}
         >
-          Login
+          {
+            loading ? <Loading/> : "Login"
+          }
         </Button>
       </Form>
     </div>

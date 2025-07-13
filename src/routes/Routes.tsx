@@ -57,14 +57,7 @@ const routes = createBrowserRouter([
         path: "/privacy",
         element: <PrivacyPage />,
       },
-      {
-        path: "/login",
-        element: <LoginPage />,
-      },
-      {
-        path: "/register",
-        element: <RegisterPage />,
-      },
+
       {
         path: "/user-profile",
         element: <UserProfile />,
@@ -94,6 +87,14 @@ const routes = createBrowserRouter([
         element: <MyApplicationPage />,
       },
     ],
+  },
+  {
+    path: "/login",
+    element: <LoginPage />,
+  },
+  {
+    path: "/register",
+    element: <RegisterPage />,
   },
 
   {
@@ -144,7 +145,7 @@ const routes = createBrowserRouter([
         path: "/dashboard/company-chart",
         element: <CompanyChart />,
       },
-    
+
     ],
   },
 ]);

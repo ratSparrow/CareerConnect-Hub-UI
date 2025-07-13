@@ -6,7 +6,9 @@ import { getFromLocalStorage } from "../../helpers/utils/saveData";
 import { useUserProfileQuery } from "../../redux/api/userApi";
 
 const PersonalInfo = () => {
-  const token = getFromLocalStorage("accessToken");
+    const userData = localStorage.getItem("userInfo")
+  const parseData = JSON.parse(userData)
+  const token = parseData?.token
 
   const {data} = useUserProfileQuery(token)
   

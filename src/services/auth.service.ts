@@ -4,8 +4,8 @@ import {
   setToLocalStorage,
 } from "../helpers/utils/saveData";
 
-export const storeUserInfo = ({ accessToken }: { accessToken: string }) => {
-  return setToLocalStorage("accessToken", accessToken as string);
+export const storeUserInfo = ({ accessToken, role }: { accessToken: string, role:string }) => {
+  return setToLocalStorage({accessToken, role});
 };
 
 export const getUserInfo = () => {

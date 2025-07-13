@@ -1,13 +1,9 @@
-export const setToLocalStorage = (key: string, token: string) => {
-  if (!key || typeof window === "undefined") {
-    return "";
-  }
-  return localStorage.setItem(key, token);
+export const setToLocalStorage = ({accessToken, role}) => {
+
+  return localStorage.setItem("userInfo",{accessToken:string, role:string});
 };
 
 export const getFromLocalStorage = (key: string) => {
-  if (!key || typeof window === "undefined") {
-    return "";
-  }
+
   return localStorage.getItem(key);
 };

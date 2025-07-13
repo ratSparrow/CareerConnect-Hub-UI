@@ -6,6 +6,9 @@ import SideBar from "../ui/dashboard/common/Sidebar";
 import Contents from "../ui/dashboard/common/Contents";
 
 const DashboardLayout = () => {
+
+
+
   const { pathname } = useLocation();
   const userLoggedIn = isLoggedIn();
   const [isLoading, setIsLoading] = useState<boolean>(false);
